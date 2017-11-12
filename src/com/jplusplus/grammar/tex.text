@@ -1,0 +1,9 @@
+integer x = 5
+x = x + 2
+
+while x > 5
+
+if x == 2
+   y = 3
+else
+   x = 4

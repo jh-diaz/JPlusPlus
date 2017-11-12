@@ -1,0 +1,25 @@
+Keywords:
+    Declaration:
+        Data_Types:
+            num
+            char
+            str
+            frac
+            bool
+    Conditional:
+        if
+        elseif
+        else
+    Repetition:
+        while
+    Functions:
+        function
+    Return:
+        return
+    Operators:
+        +
+        -
+        *
+        /
+        %
+
