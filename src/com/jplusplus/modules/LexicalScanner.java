@@ -1,4 +1,4 @@
-package com.jplusplus.grammar;
+package com.jplusplus.modules;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -50,64 +50,66 @@ public class LexicalScanner {
 
     private String[] splitInput(String userInput){
         return userInput.trim().split("\\s+");
-
     }
 
     private void readInputs(Scanner userFile){
+        int index = 0;
         while(userFile.hasNext()){
             String word = userFile.next();
-            if(word.equals(syntaxList[2])
-                    || word.equals(syntaxList[4])
-                    || word.equals(syntaxList[6])
-                    || word.equals(syntaxList[8])
-                    || word.equals(syntaxList[10])){
+            if(word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])){
                 tokenList.add(TOKENS.DATA_TYPE);
             }
 
-            else if(word.equals(syntaxList[13])
-                    || word.equals(syntaxList[15])
-                    || word.equals(syntaxList[17])
-                    || word.equals(syntaxList[19])
-                    || word.equals(syntaxList[21])){
+            else if(word.equals(syntaxList[index = index + 3])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])){
                 tokenList.add(TOKENS.ARITHMETIC_OPERATOR);
             }
 
-            else if(word.equals(syntaxList[24])
-                    || word.equals(syntaxList[26])
-                    || word.equals(syntaxList[28])){
+            else if(word.equals(syntaxList[index = index + 3])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])){
                 tokenList.add(TOKENS.CONDITIONAL);
             }
 
-            else if(word.equals(syntaxList[31])){
+            else if(word.equals(syntaxList[index = index + 3])){
                 tokenList.add(TOKENS.EXPRESSION);
             }
 
-            else if(word.equals(syntaxList[34])){
+            else if(word.equals(syntaxList[index = index + 3])){
                 tokenList.add(TOKENS.ITERATIVE);
             }
 
-            else if(word.equals(syntaxList[37])
-                    || word.equals(syntaxList[39])
-                    || word.equals(syntaxList[41])
-                    || word.equals(syntaxList[43])
-                    || word.equals(syntaxList[45])
-                    || word.equals(syntaxList[47])){
+            else if(word.equals(syntaxList[index = index + 3])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])){
                 tokenList.add(TOKENS.RELATIONAL_OPERATOR);
             }
 
-            else if(word.equals(syntaxList[50]) || word.equals(syntaxList[52]) || word.equals(syntaxList[54])){
+            else if(word.equals(syntaxList[index = index + 3])
+                    || word.equals(syntaxList[index = index + 2])
+                    || word.equals(syntaxList[index = index + 2])){
                 tokenList.add(TOKENS.TERMINATOR);
             }
 
-            else if(word.equals(syntaxList[57]) || word.equals(syntaxList[59])){
+            else if(word.equals(syntaxList[index = index + 3]) || word.equals(syntaxList[index = index + 2])){
                 tokenList.add(TOKENS.OPERATION);
             }
 
-            else if(word.equals(syntaxList[62])){
+            else if(word.equals(syntaxList[index = index + 3])){
                 userComments.add(userFile.nextLine());
             }
 
-            else if(word.length() >= 3 && (word.substring(0,2).equals(syntaxList[65]))){
+            else if(word.length() >= 3 && (word.substring(0,2).equals(syntaxList[index = index + 3]))){
                 tokenList.add(TOKENS.IDENTIFIER);
             }
 

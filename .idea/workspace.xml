@@ -2,14 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b65de6cf-b9e7-417e-bea3-c58281567eb3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/haha.text" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/prototypes/tester.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/resources/syntax.j" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/jplusplus/grammar/JplusplusGrammar.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/datatypes/DataType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/datatypes/Variable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/datatypes/fraction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/datatypes/integer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/datatypes/nibble.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/datatypes/word.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/modules/SyntaxAnalyzer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/resources/variable.j" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/grammar/LexicalScanner$TOKENS.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/grammar/LexicalScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/grammar/tex.text" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/prototypes/tester.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/prototypes/tester.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java" afterPath="$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" afterPath="$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jplusplus/prototypes/tester.java" afterPath="$PROJECT_DIR$/src/com/jplusplus/prototypes/tester.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java" afterPath="$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,50 +31,54 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="syntax.j" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/syntax.j">
+      <file leaf-file-name="fraction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/fraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="65" column="12" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+            <state relative-caret-position="85">
+              <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tex.text" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text">
+      <file leaf-file-name="integer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/integer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+            <state relative-caret-position="170">
+              <caret line="10" column="57" lean-forward="false" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LexicalScanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java">
+      <file leaf-file-name="Variable.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/Variable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="22" column="64" lean-forward="false" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#TOKENS#0;class#LexicalScanner#0" expanded="false" />
-                <element signature="method#LexicalScanner#0;class#LexicalScanner#0" expanded="false" />
-                <element signature="method#splitInput#0;class#LexicalScanner#0" expanded="false" />
-                <element signature="method#readInputs#0;class#LexicalScanner#0" expanded="false" />
-                <element signature="method#readSyntaxFile#0;class#LexicalScanner#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="170">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tester.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/prototypes/tester.java">
+      <file leaf-file-name="nibble.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/nibble.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+            <state relative-caret-position="119">
+              <caret line="7" column="64" lean-forward="false" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="word.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/word.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#289#290#0" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,6 +89,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -104,10 +119,21 @@
         <option value="$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/grammar/JplusplusGrammar.txt" />
         <option value="$PROJECT_DIR$/haha.text" />
-        <option value="$PROJECT_DIR$/src/com/jplusplus/prototypes/tester.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/resources/syntax.j" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/modules/SyntaxAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/datatypes/VariableInterface.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/datatypes/DataTypes.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/resources/grammar.j" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/resources/variable.j" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/prototypes/tester.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/datatypes/Variable.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/datatypes/fraction.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/datatypes/integer.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/datatypes/nibble.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/datatypes/word.java" />
       </list>
     </option>
   </component>
@@ -138,6 +164,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -190,6 +218,10 @@
               <option name="myItemId" value="jplusplus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prototypes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -209,14 +241,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="grammar" />
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JPlusPlus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JPlusPlus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jplusplus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datatypes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -247,7 +299,7 @@
     <configuration default="false" name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.jplusplus.grammar.*" />
+          <option name="PATTERN" value="com.jplusplus.modules.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -267,7 +319,7 @@
     <configuration default="false" name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.jplusplus.grammar.*" />
+          <option name="PATTERN" value="com.jplusplus.modules.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -735,12 +787,13 @@
       <workItem from="1510405262838" duration="872000" />
       <workItem from="1510377699535" duration="5461000" />
       <workItem from="1510480902550" duration="408000" />
-      <workItem from="1510482040432" duration="10093000" />
+      <workItem from="1510482040432" duration="14442000" />
+      <workItem from="1510525349985" duration="8982000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26591000" />
+    <option name="totallyTimeSpent" value="39922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -749,12 +802,10 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1170" height="544" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.70212764" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -762,7 +813,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2610687" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2648855" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -774,8 +825,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1170" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -795,29 +848,20 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/syntax.j">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/variable.j">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="50" lean-forward="false" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+        <state relative-caret-position="323">
+          <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#TOKENS#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#LexicalScanner#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#splitInput#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#readInputs#0;class#LexicalScanner#0" expanded="false" />
@@ -826,14 +870,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/prototypes/tester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="323">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/SyntaxAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/syntax.j">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="57" column="50" lean-forward="false" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#LexicalScanner#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="method#splitInput#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="method#readInputs#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="method#readSyntaxFile#0;class#LexicalScanner#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/syntax.j">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -842,21 +920,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="57" column="50" lean-forward="false" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#TOKENS#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#LexicalScanner#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#splitInput#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#readInputs#0;class#LexicalScanner#0" expanded="false" />
@@ -865,14 +935,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/syntax.j">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -881,21 +944,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#TOKENS#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#LexicalScanner#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#splitInput#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#readInputs#0;class#LexicalScanner#0" expanded="false" />
@@ -904,14 +959,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/syntax.j">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -920,29 +968,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#TOKENS#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#LexicalScanner#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#splitInput#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#readInputs#0;class#LexicalScanner#0" expanded="false" />
@@ -959,29 +992,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="46" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#TOKENS#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#LexicalScanner#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#splitInput#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#readInputs#0;class#LexicalScanner#0" expanded="false" />
@@ -997,19 +1015,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
     <entry file="file://$PROJECT_DIR$/haha.text">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1021,36 +1031,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/LexicalScanner.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/SyntaxAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="64" lean-forward="false" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+        <state relative-caret-position="408">
+          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/VariableInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/LexicalScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-582">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#TOKENS#0;class#LexicalScanner#0" expanded="false" />
             <element signature="method#LexicalScanner#0;class#LexicalScanner#0" expanded="false" />
-            <element signature="method#splitInput#0;class#LexicalScanner#0" expanded="false" />
-            <element signature="method#readInputs#0;class#LexicalScanner#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
             <element signature="method#readSyntaxFile#0;class#LexicalScanner#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/variable.j">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/prototypes/tester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        <state relative-caret-position="387">
+          <caret line="30" column="11" lean-forward="false" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/DataType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/fraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="57" lean-forward="false" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/nibble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="64" lean-forward="false" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/word.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#289#290#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
