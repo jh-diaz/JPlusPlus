@@ -1,7 +1,5 @@
 package com.jplusplus.modules;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,13 +7,7 @@ import java.util.Scanner;
  * Created by Joshua on 11/7/2017.
  */
 public class LexicalScanner {
-    public enum TOKENS{
-        IDENTIFIER, ARITHMETIC_OPERATOR, DATA_TYPE, CONDITIONAL,
-        EXPRESSION, ITERATIVE, RELATIONAL_OPERATOR, LITERAL,
-        TERMINATOR, COMMENT, OPERATION;
-    }
-
-    private ArrayList<TOKENS> tokenList;
+    private ArrayList<TokenType> tokenList;
     private ArrayList<String> lexemeList;
     private ArrayList<String> userComments;
     private String[] syntaxList;
@@ -28,7 +20,7 @@ public class LexicalScanner {
         readInputs(userFile);
     }
 
-    public ArrayList<TOKENS> getTokenList() {
+    public ArrayList<TokenType> getTokenList() {
         return tokenList;
     }
 
@@ -40,8 +32,8 @@ public class LexicalScanner {
         return tokenList.size();
     }
 
-    public TOKENS[] tokenListAsArray(){
-        return tokenList.toArray(new TOKENS[]{});
+    public TokenType[] tokenListAsArray(){
+        return tokenList.toArray(new TokenType[]{});
     }
 
     public String[] lexemeListAsArray(){
@@ -61,7 +53,7 @@ public class LexicalScanner {
                     || word.equals(syntaxList[index = index + 2])
                     || word.equals(syntaxList[index = index + 2])
                     || word.equals(syntaxList[index = index + 2])){
-                tokenList.add(TOKENS.DATA_TYPE);
+                tokenList.add(TokenType.DATA_TYPE);
             }
 
             else if(word.equals(syntaxList[index = index + 3])
@@ -69,21 +61,21 @@ public class LexicalScanner {
                     || word.equals(syntaxList[index = index + 2])
                     || word.equals(syntaxList[index = index + 2])
                     || word.equals(syntaxList[index = index + 2])){
-                tokenList.add(TOKENS.ARITHMETIC_OPERATOR);
+                tokenList.add(TokenType.ARITHMETIC_OPERATOR);
             }
 
             else if(word.equals(syntaxList[index = index + 3])
                     || word.equals(syntaxList[index = index + 2])
                     || word.equals(syntaxList[index = index + 2])){
-                tokenList.add(TOKENS.CONDITIONAL);
+                tokenList.add(TokenType.CONDITIONAL);
             }
 
             else if(word.equals(syntaxList[index = index + 3])){
-                tokenList.add(TOKENS.EXPRESSION);
+                tokenList.add(TokenType.ASSIGNMENT);
             }
 
             else if(word.equals(syntaxList[index = index + 3])){
-                tokenList.add(TOKENS.ITERATIVE);
+                tokenList.add(TokenType.ITERATIVE);
             }
 
             else if(word.equals(syntaxList[index = index + 3])
@@ -92,17 +84,23 @@ public class LexicalScanner {
                     || word.equals(syntaxList[index = index + 2])
                     || word.equals(syntaxList[index = index + 2])
                     || word.equals(syntaxList[index = index + 2])){
-                tokenList.add(TOKENS.RELATIONAL_OPERATOR);
+                tokenList.add(TokenType.RELATIONAL_OPERATOR);
             }
 
-            else if(word.equals(syntaxList[index = index + 3])
-                    || word.equals(syntaxList[index = index + 2])
-                    || word.equals(syntaxList[index = index + 2])){
-                tokenList.add(TOKENS.TERMINATOR);
+            else if(word.equals(syntaxList[index = index + 3])){
+                tokenList.add(TokenType.IF_TERMINATOR);
+            }
+
+            else if(word.equals(syntaxList[index = index + 2])){
+                tokenList.add(TokenType.WHILE_TERMINATOR);
+            }
+
+            else if(word.equals(syntaxList[index = index + 2])){
+                tokenList.add(TokenType.LINE_TERMINATOR);
             }
 
             else if(word.equals(syntaxList[index = index + 3]) || word.equals(syntaxList[index = index + 2])){
-                tokenList.add(TOKENS.OPERATION);
+                tokenList.add(TokenType.IO_OPERATION);
             }
 
             else if(word.equals(syntaxList[index = index + 3])){
@@ -110,13 +108,14 @@ public class LexicalScanner {
             }
 
             else if(word.length() >= 3 && (word.substring(0,2).equals(syntaxList[index = index + 3]))){
-                tokenList.add(TOKENS.IDENTIFIER);
+                tokenList.add(TokenType.IDENTIFIER);
             }
 
             else{
-                tokenList.add(TOKENS.LITERAL);
+                tokenList.add(TokenType.LITERAL);
             }
             lexemeList.add(word);
+            index = 0;
         }
     }
 

@@ -3,22 +3,20 @@ package com.jplusplus.datatypes;
 /**
  * Created by Joshua on 11/13/2017.
  */
-public class Variable<T> {
+public class Variable {
     private String variableName;
     private DataType dataType;
     private int precedence;
-    private T value;
 
     public Variable(){
         variableName = "";
         dataType = null;
     }
 
-    public Variable(String variableName, DataType dataType, int precedence, T value){
+    public Variable(String variableName, DataType dataType, int precedence){
         this.variableName = variableName;
         this.dataType = dataType;
         this.precedence = precedence;
-        this.value = value;
     }
 
     public String getVariableName() {
@@ -37,7 +35,11 @@ public class Variable<T> {
         this.dataType = dataType;
     }
 
-    public T getValue(){
-        return value;
+    public int getPrecedence() {
+        return precedence;
+    }
+
+    public void setPrecedence(int precedence) {
+        this.precedence = precedence;
     }
 }

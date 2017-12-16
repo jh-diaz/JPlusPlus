@@ -1,0 +1,605 @@
+TOKEN LIST
+Token type: DATA_TYPE
+Token data: integer
+at line number: 1
+
+Token type: IDENTIFIER
+Token data: __x
+at line number: 1
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 1
+
+Token type: LITERAL
+Token data: 5
+at line number: 1
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 1
+
+Token type: DATA_TYPE
+Token data: nibble
+at line number: 2
+
+Token type: IDENTIFIER
+Token data: __y
+at line number: 2
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 2
+
+Token type: LITERAL
+Token data: 'a'
+at line number: 2
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 2
+
+Token type: DATA_TYPE
+Token data: fraction
+at line number: 3
+
+Token type: IDENTIFIER
+Token data: __z
+at line number: 3
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 3
+
+Token type: LITERAL
+Token data: 1.2
+at line number: 3
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 3
+
+Token type: DATA_TYPE
+Token data: bool
+at line number: 4
+
+Token type: IDENTIFIER
+Token data: __isValid
+at line number: 4
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 4
+
+Token type: LITERAL
+Token data: true
+at line number: 4
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 4
+
+Token type: DATA_TYPE
+Token data: word
+at line number: 5
+
+Token type: IDENTIFIER
+Token data: __a
+at line number: 5
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 5
+
+Token type: LITERAL
+Token data: "hello"
+at line number: 5
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 5
+
+Token type: DATA_TYPE
+Token data: integer
+at line number: 7
+
+Token type: IDENTIFIER
+Token data: __x
+at line number: 7
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 7
+
+Token type: DATA_TYPE
+Token data: integer
+at line number: 8
+
+Token type: IDENTIFIER
+Token data: __y
+at line number: 8
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 8
+
+Token type: LITERAL
+Token data: 1
+at line number: 8
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 8
+
+Token type: IDENTIFIER
+Token data: __x
+at line number: 9
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 9
+
+Token type: IDENTIFIER
+Token data: __y
+at line number: 9
+
+Token type: ARITHMETIC_OPERATOR
+Token data: +
+at line number: 9
+
+Token type: LITERAL
+Token data: 1
+at line number: 9
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 9
+
+Token type: DATA_TYPE
+Token data: nibble
+at line number: 11
+
+Token type: IDENTIFIER
+Token data: __a
+at line number: 11
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 11
+
+Token type: INPUT_CHARACTER_OPERATION
+Token data: input.nibble
+at line number: 12
+
+Token type: IDENTIFIER
+Token data: __a
+at line number: 12
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 12
+
+Token type: DATA_TYPE
+Token data: integer
+at line number: 14
+
+Token type: IDENTIFIER
+Token data: __s
+at line number: 14
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 14
+
+Token type: INPUT_INTEGER_OPERATION
+Token data: input.integer
+at line number: 15
+
+Token type: IDENTIFIER
+Token data: __s
+at line number: 15
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 15
+
+Token type: OUTPUT_OPERATION
+Token data: output
+at line number: 17
+
+Token type: LITERAL
+Token data: "HI!"
+at line number: 17
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 17
+
+Token type: OUTPUT_OPERATION
+Token data: output
+at line number: 18
+
+Token type: LITERAL
+Token data: "HI!"
+at line number: 18
+
+Token type: ARITHMETIC_OPERATOR
+Token data: +
+at line number: 18
+
+Token type: IDENTIFIER
+Token data: __s
+at line number: 18
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 18
+
+Token type: DATA_TYPE
+Token data: integer
+at line number: 20
+
+Token type: IDENTIFIER
+Token data: __y
+at line number: 20
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 20
+
+Token type: LITERAL
+Token data: 4
+at line number: 20
+
+Token type: ARITHMETIC_OPERATOR
+Token data: /
+at line number: 20
+
+Token type: LITERAL
+Token data: 2
+at line number: 20
+
+Token type: ARITHMETIC_OPERATOR
+Token data: +
+at line number: 20
+
+Token type: LITERAL
+Token data: 3
+at line number: 20
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 20
+
+Token type: IDENTIFIER
+Token data: __y
+at line number: 21
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 21
+
+Token type: LITERAL
+Token data: 4
+at line number: 21
+
+Token type: ARITHMETIC_OPERATOR
+Token data: %
+at line number: 21
+
+Token type: LITERAL
+Token data: 2
+at line number: 21
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 21
+
+Token type: IDENTIFIER
+Token data: __y
+at line number: 22
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 22
+
+Token type: LITERAL
+Token data: 4
+at line number: 22
+
+Token type: ARITHMETIC_OPERATOR
+Token data: *
+at line number: 22
+
+Token type: LITERAL
+Token data: 2
+at line number: 22
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 22
+
+Token type: DATA_TYPE
+Token data: integer
+at line number: 24
+
+Token type: IDENTIFIER
+Token data: __x
+at line number: 24
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 24
+
+Token type: LITERAL
+Token data: 1
+at line number: 24
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 24
+
+Token type: IF
+Token data: if
+at line number: 25
+
+Token type: IDENTIFIER
+Token data: __x
+at line number: 25
+
+Token type: RELATIONAL_OPERATOR
+Token data: ==
+at line number: 25
+
+Token type: LITERAL
+Token data: 1
+at line number: 25
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 25
+
+Token type: OUTPUT_OPERATION
+Token data: output
+at line number: 26
+
+Token type: LITERAL
+Token data: "hello"
+at line number: 26
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 26
+
+Token type: IF_TERMINATOR
+Token data: endif
+at line number: 27
+
+Token type: ELSEIF
+Token data: elseif
+at line number: 28
+
+Token type: IDENTIFIER
+Token data: __x
+at line number: 28
+
+Token type: RELATIONAL_OPERATOR
+Token data: <=
+at line number: 28
+
+Token type: LITERAL
+Token data: 2
+at line number: 28
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 28
+
+Token type: OUTPUT_OPERATION
+Token data: output
+at line number: 29
+
+Token type: LITERAL
+Token data: "halo"
+at line number: 29
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 29
+
+Token type: ELSEIF_TERMINATOR
+Token data: endelseif
+at line number: 30
+
+Token type: ELSE
+Token data: else
+at line number: 31
+
+Token type: OUTPUT_OPERATION
+Token data: output
+at line number: 32
+
+Token type: LITERAL
+Token data: "xxxx"
+at line number: 32
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 32
+
+Token type: ELSE_TERMINATOR
+Token data: endelse
+at line number: 33
+
+Token type: WHILE
+Token data: while
+at line number: 35
+
+Token type: LITERAL
+Token data: 1
+at line number: 35
+
+Token type: RELATIONAL_OPERATOR
+Token data: ==
+at line number: 35
+
+Token type: LITERAL
+Token data: 1
+at line number: 35
+
+Token type: OUTPUT_OPERATION
+Token data: output
+at line number: 36
+
+Token type: LITERAL
+Token data: "HEY!"
+at line number: 36
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 36
+
+Token type: WHILE_TERMINATOR
+Token data: endwhile
+at line number: 37
+
+Token type: DO_WHILE
+Token data: do
+at line number: 40
+
+Token type: OUTPUT_OPERATION
+Token data: output
+at line number: 41
+
+Token type: LITERAL
+Token data: "HEY!"
+at line number: 41
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 41
+
+Token type: DO_WHILE_TERMINATOR
+Token data: enddo
+at line number: 42
+
+Token type: COND
+Token data: cond
+at line number: 44
+
+Token type: LITERAL
+Token data: 5
+at line number: 44
+
+Token type: RELATIONAL_OPERATOR
+Token data: >
+at line number: 44
+
+Token type: LITERAL
+Token data: 2
+at line number: 44
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 44
+
+Token type: FOR
+Token data: for
+at line number: 46
+
+Token type: DATA_TYPE
+Token data: integer
+at line number: 46
+
+Token type: IDENTIFIER
+Token data: __i
+at line number: 46
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 46
+
+Token type: LITERAL
+Token data: 1
+at line number: 46
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 46
+
+Token type: IDENTIFIER
+Token data: __i
+at line number: 46
+
+Token type: RELATIONAL_OPERATOR
+Token data: <
+at line number: 46
+
+Token type: LITERAL
+Token data: 5
+at line number: 46
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 46
+
+Token type: IDENTIFIER
+Token data: __i
+at line number: 46
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 46
+
+Token type: IDENTIFIER
+Token data: __i
+at line number: 46
+
+Token type: ARITHMETIC_OPERATOR
+Token data: +
+at line number: 46
+
+Token type: LITERAL
+Token data: 1
+at line number: 46
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 46
+
+Token type: OUTPUT_OPERATION
+Token data: output
+at line number: 47
+
+Token type: LITERAL
+Token data: "HEY!"
+at line number: 47
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 47
+
+Token type: FOR_TERMINATOR
+Token data: endfor
+at line number: 48
+
+Token type: DATA_TYPE
+Token data: integer
+at line number: 50
+
+Token type: IDENTIFIER
+Token data: __x
+at line number: 50
+
+Token type: ASSIGNMENT
+Token data: =
+at line number: 50
+
+Token type: LITERAL
+Token data: 1
+at line number: 50
+
+Token type: LINE_TERMINATOR
+Token data: ;
+at line number: 50
+
