@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jplusplus.ui.Controller">
+
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem onAction="#onOpen" text="Open" />
+                        <MenuItem onAction="#onSave" text="Save" />
+                        <MenuItem onAction="#onClose" text="Close" />
+                    </items>
+                </Menu>
+                <Menu text="Run">
+                    <MenuItem onAction="#onRun" text="Run" />
+                    <MenuItem onAction="#onStop" text="Stop/Interrupt" />
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem onAction="#onAbout" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <bottom>
+        <HBox prefHeight="23.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Text strokeType="OUTSIDE" fx:id="updates" strokeWidth="0.0" text="" />
+            </children>
+        </HBox>
+    </bottom>
+
+    <center>
+        <TextArea fx:id="textarea" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </center>
+</BorderPane>
