@@ -12,5 +12,5 @@ public interface SyntaxScannerInterface {
     //icompare yung line number attribute ng token ni variable
     //if less than 57, oks siya
     //if greater than, then hindi. kasi di pa siya existing that time
-    public HashMap<Token, DataType> getVariableSymbolicTable();
+    public HashMap<String, Token> getVariableSymbolicTable();
 }

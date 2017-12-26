@@ -1,5 +1,9 @@
 package com.jplusplus.modules;
 
+import com.jplusplus.datatypes.DataType;
+
+import javax.xml.crypto.Data;
+
 /**
  * Created by Joshua on 11/15/2017.
  */
@@ -7,17 +11,25 @@ public class Token {
     private TokenType tokenType;
     private String data;
     private int lineNumber;
+    private DataType dataType;
 
     public Token(int lineNumber){
         this.tokenType = null;
         this.data = "";
         this.lineNumber = lineNumber;
+        this.dataType = null;
     }
 
     public Token(TokenType tokenType, String data, int lineNumber) {
         this.tokenType = tokenType;
         this.data = data;
         this.lineNumber = lineNumber;
+        this.dataType = null;
+    }
+
+    public Token(TokenType tokenType, String data, int lineNumber, DataType dataType) {
+        this(tokenType, data, lineNumber);
+        this.dataType = dataType;
     }
 
     public TokenType getTokenType() {
