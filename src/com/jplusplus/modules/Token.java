@@ -55,4 +55,8 @@ public class Token {
     public void setLineNumber(int lineNumber) {
         this.lineNumber = lineNumber;
     }
+
+    public DataType getDataType() {
+        return dataType;
+    }
 }

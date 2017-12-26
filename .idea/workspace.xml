@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b65de6cf-b9e7-417e-bea3-c58281567eb3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jplusplus/modules/MockSemanticClass.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/resources/testinput.j" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/jplusplus/resources/testinput.j" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jplusplus/modules/SyntaxScannerInterface.java" afterPath="$PROJECT_DIR$/src/com/jplusplus/modules/SyntaxScannerInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jplusplus/modules/Token.java" afterPath="$PROJECT_DIR$/src/com/jplusplus/modules/Token.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,7 +23,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MockSemanticClass.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MockSemanticClass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/MockSemanticClass.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="441">
@@ -40,13 +35,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Token.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Token.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Token.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+            <state relative-caret-position="424">
+              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1320#1321#0" expanded="true" />
+                <element signature="e#1351#1352#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,9 +133,9 @@
         <option value="$PROJECT_DIR$/src/com/jplusplus/prototypes/asd.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/resources/testinput.jpp" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/modules/SemanticScannerInterface.java" />
-        <option value="$PROJECT_DIR$/src/com/jplusplus/modules/Token.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/modules/SyntaxScannerInterface.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/modules/MockSemanticClass.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/modules/Token.java" />
       </list>
     </option>
   </component>
@@ -810,12 +807,12 @@
       <workItem from="1514002142369" duration="658000" />
       <workItem from="1514246769495" duration="1481000" />
       <workItem from="1514259503227" duration="608000" />
-      <workItem from="1514299408016" duration="884000" />
+      <workItem from="1514299408016" duration="982000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134809000" />
+    <option name="totallyTimeSpent" value="134907000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1114,13 +1111,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/TokenType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Lexical.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1170,20 +1160,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Token.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/SyntaxScannerInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/TokenType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1194,6 +1182,18 @@
           <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Token.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1320#1321#0" expanded="true" />
+            <element signature="e#1351#1352#0" expanded="true" />
           </folding>
         </state>
       </provider>
