@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JPlusPlus:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JPlusPlus_jar</output-path>
+    <root id="archive" name="JPlusPlus.jar">
+      <element id="module-output" name="JPlusPlus" />
+    </root>
+  </artifact>
+</component>

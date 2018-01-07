@@ -5,7 +5,7 @@ public class tester {
    /*    Scanner userFile = null, syntaxFile = null;
         try{
             userFile = new Scanner(new FileReader("src/com/jplusplus/resources/testinput.j"));
-            syntaxFile = new Scanner(new FileReader("src/com/jplusplus/resources/syntax.j"));
+            syntaxFile = new Scanner(new FileReader("src/com/jplusplus/resources/syntax.jpp"));
         }
         catch(FileNotFoundException e){
             System.out.println("Configuration files are missing. ");

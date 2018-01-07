@@ -2,7 +2,7 @@ integer __x = 5 ;
 	nibble __y = 'a' ;
 	fraction __z = 1.2 ;
 	bool __isValid = true ;
-	word __a = "hello" ;
+	word __a = "if" ;
 
 	integer __x ;
 	integer __y = 1 ;

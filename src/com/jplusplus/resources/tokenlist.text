@@ -92,7 +92,7 @@ Token data: =
 at line number: 5
 
 Token type: LITERAL
-Token data: "hello"
+Token data: "if"
 at line number: 5
 
 Token type: LINE_TERMINATOR

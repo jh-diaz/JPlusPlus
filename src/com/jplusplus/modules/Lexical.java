@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Created by Joshua on 11/15/2017.
+ * Created by Joshua on 11/7/2017.
  */
 public class Lexical implements LexicalScannerInterface {
     private ArrayList<Token> tokens;
