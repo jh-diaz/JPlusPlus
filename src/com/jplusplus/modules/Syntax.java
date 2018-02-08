@@ -1,5 +1,7 @@
 package com.jplusplus.modules;
 
+import com.jplusplus.exceptions.LexicalScanningException;
+
 import java.util.ArrayList;
 
 /**
@@ -17,7 +19,7 @@ public class Syntax {
         currentIndex = 0;
         savedIndex = 0;
         syntaxList = lexicalScanner.getSyntaxList();
-        if(statement()){
+        if(E()){
             System.out.println("accepted");
         }
         else{
@@ -25,74 +27,107 @@ public class Syntax {
         }
     }
 
-    private boolean statement(){
-        return declarationStatement();
+    /*private boolean E(){
+        System.out.println("E");
+        T();
+        Eopt();
+        return true;
     }
 
-    private boolean declarationStatement(){
-        return expectedToken(TokenType.DATA_TYPE)
-                && (saveToken() | assignment() | backtrackToken() | identifier())
-                && expectedToken(TokenType.LINE_TERMINATOR);
+    private void Eopt(){
+        System.out.println("E opt");
+        getToken();
+        System.out.println(currentToken.getData());
+        if(expectedData("+") || expectedData("-")){
+            currentIndex++;
+            T();
+            Eopt();
+        }
     }
 
-    private boolean assignment(){
-        return identifier() && expectedToken(TokenType.ASSIGNMENT) && expression();
+    private void T(){
+        System.out.println("T");
+        F();
+        Topt();
     }
 
-    private boolean identifier(){
-        return expectedToken(TokenType.IDENTIFIER);
+    private void Topt(){
+        System.out.println("Topt");
+        getToken();
+        System.out.println(currentToken.getData());
+        if(expectedData("*") || expectedData("/")){
+            currentIndex++;
+            F();
+            Topt();
+        }
     }
 
-    private boolean literal(){
-        return expectedToken(TokenType.LITERAL);
+    private void F(){
+        System.out.println("F");
+        getToken();
+        System.out.println(currentToken.getData());
+        if(expectedToken(TokenType.LITERAL)){
+            currentIndex++;
+        }
+        else{
+            System.out.println("MISSING LITERAL AT " + currentToken.getData());
+            throw new LexicalScanningException("sssss");
+        }
+    }*/
+
+    private boolean E(){
+        System.out.println("E");
+        getToken();
+        System.out.println(currentToken.getData());
+        return T() && Eopt();
     }
 
-    private boolean operand(){
-        returnIndex2();
-        returnIndex();
-        return saveToken() || expectedToken(TokenType.IDENTIFIER)
-                || backtrackToken() || expectedToken(TokenType.LITERAL);
+    private boolean Eopt(){
+        System.out.println("EOpt");
+        getToken();
+        System.out.println(currentToken.getData());
+        if(expectedData("+") || expectedData("-")){ //lookahead
+            currentIndex++;
+            return T() && Eopt();
+        }
+        else{
+            return true; //lambda
+        }
     }
 
-    private boolean expression(){
-        return arithmeticExpression() || relationalComparison() ;
+    private boolean T(){
+        System.out.println("T");
+        getToken();
+        System.out.println(currentToken.getData());
+        return F() && TopT();
     }
 
-    private boolean arithmeticExpression(){
-        if(operand()){
-            int occurences = 0;
-            for(; arithmeticOperators() && operand(); occurences++);
-            return occurences != 0;
+    private boolean TopT(){
+        System.out.println("TopT");
+        getToken();
+        System.out.println(currentToken.getData());
+        if(expectedData("*") || expectedData("/")){
+            currentIndex++;
+            return F() && TopT();
+        }
+        else{
+            return true; //lambda
+        }
+    }
+
+    private boolean F(){
+        System.out.println("F");
+        getToken();
+        System.out.println(currentToken.getData());
+        if(expectedToken(TokenType.LITERAL) || expectedToken(TokenType.IDENTIFIER)){
+            if(lexicalScanner.hasNextToken(currentIndex+1)){
+                currentIndex++;
+            }
+            return true;
         }
         else{
             return false;
         }
-    }
-
-    private boolean relationalComparison(){
-        return  (saveToken() | operand() | backtrackToken() | arithmeticExpression())
-                && expectedToken(TokenType.RELATIONAL_OPERATOR)
-                && (saveToken() | operand() | backtrackToken() | arithmeticExpression());
-    }
-
-    private boolean arithmeticOperators(){
-        int index = 13;
-        return (saveToken() || (expectedToken(TokenType.ARITHMETIC_OPERATOR) && expectedData(syntaxList[index])))
-        || (backtrackToken() || (expectedToken(TokenType.ARITHMETIC_OPERATOR) && expectedData(syntaxList[index+2])))
-                || (backtrackToken() || (expectedToken(TokenType.ARITHMETIC_OPERATOR) && expectedData(syntaxList[index+2])))
-                || (backtrackToken() || (expectedToken(TokenType.ARITHMETIC_OPERATOR) && expectedData(syntaxList[index+2])))
-                || (backtrackToken() || (expectedToken(TokenType.ARITHMETIC_OPERATOR) && expectedData(syntaxList[index+2])))
-                || backtrackToken();
-    }
-
-    private boolean returnIndex(){
-        System.out.println(savedIndex);
-        return false;
-    }
-
-    private boolean returnIndex2(){
-        System.out.println(currentIndex);
-        return false;
     }
 
     private boolean backtrackToken(){
@@ -112,13 +147,22 @@ public class Syntax {
     }
 
     private boolean expectedToken(TokenType tokenType){
-        nextToken();
         return currentToken.getTokenType() == tokenType;
     }
 
-    private void nextToken(){
+   /* *//*private void nextToken(){
         if(lexicalScanner.hasNextToken(currentIndex)){
             currentToken = lexicalScanner.getToken(currentIndex++);
+        }
+        else{
+            System.out.println("Insufficient tokens at line number " + currentToken.getLineNumber() + " near " + currentToken.getData());
+            System.exit(0);
+       *//* }
+    }*/
+
+    private void getToken(){
+        if(lexicalScanner.hasNextToken(currentIndex)){
+            currentToken = lexicalScanner.getToken(currentIndex);
         }
         else{
             System.out.println("Insufficient tokens at line number " + currentToken.getLineNumber() + " near " + currentToken.getData());

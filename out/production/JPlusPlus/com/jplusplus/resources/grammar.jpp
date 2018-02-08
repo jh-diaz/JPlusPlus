@@ -10,6 +10,7 @@ I -> identifier
 L -> literal
 operand -> L|I
 assignment -> I equals expression
+
 expression -> arithmetic-expression|relation-comparison
 arithmetic-expression -> operand { arithmetic-operator  operand }
 arithmetic-operator -> + | - | * | / | %
