@@ -77,7 +77,7 @@
     ~Prompt user for character input~
         input.nibble
      ~Prompt user for string input~
-        input.string
+        input.word
      ~Prompt user for bool input~
         input.bool
 ~COMMENTS~
