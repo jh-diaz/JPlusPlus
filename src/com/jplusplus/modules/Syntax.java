@@ -1,9 +1,5 @@
 package com.jplusplus.modules;
 
-import com.jplusplus.exceptions.LexicalScanningException;
-
-import java.util.ArrayList;
-
 /**
  * Created by Joshua on 11/15/2017.
  */
@@ -19,62 +15,14 @@ public class Syntax {
         currentIndex = 0;
         savedIndex = 0;
         syntaxList = lexicalScanner.getSyntaxList();
-        if(E()){
+        if(variableDeclaration()){
             System.out.println("accepted");
         }
         else{
             System.out.println("rejected");
         }
     }
-
-    /*private boolean E(){
-        System.out.println("E");
-        T();
-        Eopt();
-        return true;
-    }
-
-    private void Eopt(){
-        System.out.println("E opt");
-        getToken();
-        System.out.println(currentToken.getData());
-        if(expectedData("+") || expectedData("-")){
-            currentIndex++;
-            T();
-            Eopt();
-        }
-    }
-
-    private void T(){
-        System.out.println("T");
-        F();
-        Topt();
-    }
-
-    private void Topt(){
-        System.out.println("Topt");
-        getToken();
-        System.out.println(currentToken.getData());
-        if(expectedData("*") || expectedData("/")){
-            currentIndex++;
-            F();
-            Topt();
-        }
-    }
-
-    private void F(){
-        System.out.println("F");
-        getToken();
-        System.out.println(currentToken.getData());
-        if(expectedToken(TokenType.LITERAL)){
-            currentIndex++;
-        }
-        else{
-            System.out.println("MISSING LITERAL AT " + currentToken.getData());
-            throw new LexicalScanningException("sssss");
-        }
-    }*/
-
+    //ARITHMETIC EXPR
     private boolean E(){
         System.out.println("E");
         getToken();
@@ -129,18 +77,53 @@ public class Syntax {
             return false;
         }
     }
+    //ARITHMETIC EXPR
 
-    private boolean backtrackToken(){
-        currentIndex = savedIndex;
-        saveToken();
-        return false; //para lang masabay sa return statement.
+    //VARIABLE DECLARATION
+    private boolean variableDeclaration(){
+        System.out.println("VARIABLE DECLARATION");
+        getToken();
+        System.out.println(currentToken.getData());
+        if(expectedToken(TokenType.DATA_TYPE)){
+            currentIndex++;
+            return assignment() && expectedToken(TokenType.LINE_TERMINATOR);
+        }
+        else{
+            return false;
+        }
     }
 
-    private boolean saveToken(){
-        savedIndex = currentIndex;
-
-        return false; //para lang masabay sa return statement.
+    private boolean assignment(){
+        System.out.println("ASSIGNMENT");
+        getToken();
+        System.out.println(currentToken.getData());
+        if(expectedToken(TokenType.IDENTIFIER)){
+            currentIndex++;
+            getToken();
+            return expectedToken(TokenType.ASSIGNMENT) && expression();
+        }
+        else{
+            return false;
+        }
     }
+
+    private boolean expression(){
+        currentIndex++;
+        getToken();
+        System.out.println("EXPRESSION");
+        System.out.println(currentToken.getData());
+        return (saveIndex() || E())
+                ||
+                (backtrackIndex() || relationalExpression());
+    }
+
+    private boolean relationalExpression(){
+        getToken();
+        System.out.println("relational expression");
+        System.out.println(currentToken.getData());
+        return E() && expectedToken(TokenType.RELATIONAL_OPERATOR) && E();
+    }
+    //VARIABLE DECLARATION
 
     private boolean expectedData(String data){
         return currentToken.getData().equals(data); //case sensitive lexeme/data
@@ -150,16 +133,6 @@ public class Syntax {
         return currentToken.getTokenType() == tokenType;
     }
 
-   /* *//*private void nextToken(){
-        if(lexicalScanner.hasNextToken(currentIndex)){
-            currentToken = lexicalScanner.getToken(currentIndex++);
-        }
-        else{
-            System.out.println("Insufficient tokens at line number " + currentToken.getLineNumber() + " near " + currentToken.getData());
-            System.exit(0);
-       *//* }
-    }*/
-
     private void getToken(){
         if(lexicalScanner.hasNextToken(currentIndex)){
             currentToken = lexicalScanner.getToken(currentIndex);
@@ -168,5 +141,17 @@ public class Syntax {
             System.out.println("Insufficient tokens at line number " + currentToken.getLineNumber() + " near " + currentToken.getData());
             System.exit(0);
         }
+    }
+
+    private boolean backtrackIndex(){
+        currentIndex = savedIndex;
+        saveIndex();
+        return false; //para lang masabay sa return statement.
+    }
+
+    private boolean saveIndex(){
+        savedIndex = currentIndex;
+
+        return false; //para lang masabay sa return statement.
     }
 }
