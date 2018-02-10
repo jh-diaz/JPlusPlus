@@ -1,8 +1,9 @@
 package com.jplusplus.ui;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
@@ -15,13 +16,15 @@ public class Controller {
     private Model model;
     private JPPFile currentFile;
     @FXML private Text updates;
+    @FXML private SplitPane splitPane;
+    @FXML private TabPane tabs;
 
     public Controller(Model model){
         this.model = model;
     }
     @FXML
     protected void initialize(){
-        TextAreaEvents.addTextArea(textarea, updates);
+        TextEditorEvents.addTextAreaEvents(textarea, updates);
     }
 
     @FXML private void onOpen(){
@@ -48,7 +51,10 @@ public class Controller {
         model.close();
     }
     @FXML private void onRun(){
-
+        //do something about getting data from compiler
+        OutputTab ot = new OutputTab(splitPane);
+                ot.setText("walao");
+        tabs.getTabs().add(ot);
     }
     @FXML private void onStop(){
 

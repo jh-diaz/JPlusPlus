@@ -1,12 +1,12 @@
 package com.jplusplus.ui;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
-public class TextAreaEvents {
+public class TextEditorEvents {
 
-    public static void addTextArea(TextArea area, Text text){
+    public static void addTextAreaEvents(TextArea area, Text text){
 
         area.textProperty().addListener(new ChangeListener<String>() {
             @Override
