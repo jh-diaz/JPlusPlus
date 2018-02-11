@@ -9,10 +9,15 @@ import java.util.List;
 
 public class cmdCommand {
     private List<String> output = new ArrayList<>();
-    String command = "cmd.exe /c java -cp \"F:/School Folder/Compiler/JPlusPlus/out/production/JPlusPlus/\" " +
-            "com.jplusplus.modules.JPPCompiler ";
+    String compilerPath="";
+    String command1 = "cmd.exe /c java -cp";
+    String command2 = "com.jplusplus.modules.JPPCompiler ";
 
     public cmdCommand(String path) {
+        compilerPath = this.getClass().getResource("/").getPath();
+        compilerPath = compilerPath.substring(1);
+        compilerPath = compilerPath.replaceAll("%20", " ");
+        String command = command1 + " \"" + compilerPath + "\" " + command2;
         try {
             String nc = command+"\""+path+"\"";
             Process p = Runtime.getRuntime().exec(nc);

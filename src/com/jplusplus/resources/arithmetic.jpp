@@ -5,7 +5,7 @@ if __x > 5
         else
             if __x == 5
             output "HI" ;
-                while __x > 5 +
+                while __x > 5
                     input.word __x ;
                 endwhile
             endif
