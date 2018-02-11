@@ -30,9 +30,10 @@ public class Model {
             FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("JPP Files (*.jpp)", "*.jpp");
             fileChooser.getExtensionFilters().add(filter);
             File saveFile = fileChooser.showSaveDialog(null);
-            Path path = Paths.get(saveFile.getPath());
-            file.setPath(path);
-            if(saveFile!=null){
+            if(saveFile!=null) {
+                Path path = Paths.get(saveFile.getPath());
+                file.setPath(path);
+
                 Files.write(path, file.getContent(), StandardOpenOption.CREATE_NEW);
             }
         } catch(IOException e){
