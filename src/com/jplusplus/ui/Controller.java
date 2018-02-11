@@ -43,30 +43,27 @@ public class Controller {
                 currentFile.getContent().forEach(e -> textarea.appendText(e + "\n"));
             }
         }
+        Main.setTitle(currentFile.getFilename());
     }
     @FXML private void onSave(){
         if(currentFile!=null) {
             JPPFile file = new JPPFile(currentFile.getPath(), Arrays.asList(textarea.getText().split("\n")));
+            currentFile = file;
             model.save(file);
         }
-        else {
+        else{
             JPPFile file = new JPPFile(Arrays.asList(textarea.getText().split("\n")));
             currentFile = file;
-            model.saveNewFile(file);
+            model.saveNewFile(currentFile);
         }
+        Main.setTitle(currentFile.getFilename());
     }
     @FXML private void onClose(){
         model.close();
     }
     @FXML private void onRun(){
-        //do something about getting data from compiler
-        OutputTab ot = new OutputTab(splitPane);
-        ot.setText("Output");
-        if(currentFile!=null)
-            ot.setTextAreaText(currentFile.getContent());
-        else
-            ot.setTextAreaText(Arrays.asList(textarea.getText().split("\n")));
-        tabs.getTabs().add(ot);
+        onSave();
+        tabs.getTabs().add(model.run(currentFile, splitPane));
     }
     @FXML private void onStop(){
 

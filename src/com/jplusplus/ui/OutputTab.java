@@ -21,7 +21,6 @@ public class OutputTab extends Tab{
         splitPane.setDividerPositions(0.60);
         setText("atetsaedfsxc");
         apane = new AnchorPane();
-        splitPane.setPickOnBounds(true);
 
         output = new TextArea();
         output.setEditable(true);

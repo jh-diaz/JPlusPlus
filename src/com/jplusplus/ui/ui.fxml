@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jplusplus.ui.Controller">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/1.8.0_151" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jplusplus.ui.Controller">
 
     <top>
         <MenuBar BorderPane.alignment="CENTER">

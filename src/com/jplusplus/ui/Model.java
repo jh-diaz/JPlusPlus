@@ -1,8 +1,10 @@
 package com.jplusplus.ui;
 
+import javafx.scene.control.SplitPane;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,18 +17,9 @@ public class Model {
 
     public void save(JPPFile file){
         try {
-            Files.write(file.getPath(), file.getContent(), StandardOpenOption.CREATE);
+            Files.write(file.getPath(), file.getContent());
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-    public Result<JPPFile> open(Path file){
-        try {
-            List<String> lines = Files.readAllLines(file);
-            return new Result<>(new JPPFile(file, lines), Result.Success);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new Result<>(null, Result.Failed);
         }
     }
     public void saveNewFile(JPPFile file){
@@ -46,13 +39,28 @@ public class Model {
             e.printStackTrace();
         }
     }
+    public Result<JPPFile> open(Path file){
+        try {
+            List<String> lines = Files.readAllLines(file);
+            return new Result<>(new JPPFile(file, lines), Result.Success);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new Result<>(null, Result.Failed);
+        }
+    }
     public void close(){
         System.exit(0);
     }
     public void interrupt(){
         //change when compiler is done
     }
-    public Result<JPPFile> run(JPPFile file){
-        return new Result(file, false); //do change when compiler is done
+    public OutputTab run(JPPFile file, SplitPane splitPane){
+        OutputTab ot = new OutputTab(splitPane);
+        ot.setText("Output");
+        if(file!=null){
+            cmdCommand cmd = new cmdCommand(file.getPath().toString());
+            ot.setTextAreaText(cmd.getOutput());
+        }
+        return ot;
     }
 }
