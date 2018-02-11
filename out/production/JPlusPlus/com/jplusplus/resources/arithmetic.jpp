@@ -1,1 +1,31 @@
-word __x = __y > 2 ;
+for
+    if
+        while
+            if
+            endif
+
+            elseif
+            endelseif
+
+            elseif
+            endelseif
+
+            else
+                do
+                enddo
+            endelse
+        endwhile
+    endif
+
+    elseif
+    endelseif
+
+    else
+    endelse
+
+endfor
+
+for
+while
+endwhile
+endfor
