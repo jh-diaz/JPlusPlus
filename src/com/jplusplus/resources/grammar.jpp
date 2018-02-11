@@ -11,7 +11,7 @@ relational-comparison -> arithmetic-expression relational-operator arithmetic-ex
 
 i/o operation -> INP|OUT line-terminator
 INP -> input.integer|input.fraction|input.nibble|input.word|input.bool identifier
-OUT -> output identifier|literal
+OUT -> output identifier|literal // fix output
 
 
 

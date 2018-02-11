@@ -11,7 +11,11 @@ relational-comparison -> arithmetic-expression relational-operator arithmetic-ex
 
 i/o operation -> INP|OUT line-terminator
 INP -> input.integer|input.fraction|input.nibble|input.word|input.bool identifier
-OUT -> output identifier|literal
+OUT -> output identifier|literal // fix output
+
+
+
+
 
 
 
@@ -22,12 +26,16 @@ block-statement -> { statement }
 
 
 
-
-
 if-statement -> if expression {..} endif //syntax wise, 1+1 is correct. needs semantic checking
 //since if elseif clause requires a boolean attribute
 elseif-statement -> if-statement elseif expression {..} endelseif
 else-statement -> elseif-statement|ifstatement else expression {..} endelse
+
+if-statement -> if expression block-statements endif elseif-statement else
+elseif-statement -> elseif expression block-statements endelseif elseif-statement | lambda
+else -> else block-statements
+
+
 
 while-statement -> while expression {..} endwhile
 line-terminator -> ;
