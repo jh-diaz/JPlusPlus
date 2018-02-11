@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Properties;
 
 public final class About {
-    public static String version, about, title;
+    public static String version, about, title, syntaxFile;
 
     public About(){
         try{

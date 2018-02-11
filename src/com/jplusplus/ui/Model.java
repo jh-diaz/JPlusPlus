@@ -56,7 +56,7 @@ public class Model {
     }
     public OutputTab run(JPPFile file, SplitPane splitPane){
         OutputTab ot = new OutputTab(splitPane);
-        ot.setText("Output");
+        ot.setText("Output ("+file.getFilename()+")");
         if(file!=null){
             cmdCommand cmd = new cmdCommand(file.getPath().toString());
             ot.setTextAreaText(cmd.getOutput());
