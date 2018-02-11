@@ -12,12 +12,14 @@ public class Token {
     private String data;
     private int lineNumber;
     private DataType dataType;
+    private boolean isCounter;
 
     public Token(int lineNumber){
         this.tokenType = null;
         this.data = "";
         this.lineNumber = lineNumber;
         this.dataType = null;
+        isCounter = false;
     }
 
     public Token(TokenType tokenType, String data, int lineNumber) {
@@ -25,11 +27,25 @@ public class Token {
         this.data = data;
         this.lineNumber = lineNumber;
         this.dataType = null;
+        isCounter = false;
     }
 
     public Token(TokenType tokenType, String data, int lineNumber, DataType dataType) {
         this(tokenType, data, lineNumber);
         this.dataType = dataType;
+        isCounter = false;
+    }
+
+    public void setDataType(DataType dataType) {
+        this.dataType = dataType;
+    }
+
+    public boolean isCounter() {
+        return isCounter;
+    }
+
+    public void setCounter(boolean counter) {
+        isCounter = counter;
     }
 
     public TokenType getTokenType() {
