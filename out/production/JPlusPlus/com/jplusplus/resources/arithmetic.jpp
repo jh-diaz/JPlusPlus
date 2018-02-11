@@ -1,31 +1,15 @@
-for
-    if
-        while
-            if
+if __x > 5
+    while __x + 2
+        if __x > 2
+        endif
+        else
+            if __x == 5
+            output "HI" ;
+                while __x > 5 +
+                    input.word __x ;
+                endwhile
             endif
-
-            elseif
-            endelseif
-
-            elseif
-            endelseif
-
-            else
-                do
-                enddo
-            endelse
-        endwhile
-    endif
-
-    elseif
-    endelseif
-
-    else
-    endelse
-
-endfor
-
-for
-while
-endwhile
-endfor
+            integer __x = 2 + 1 ;
+        endelse
+    endwhile
+endif

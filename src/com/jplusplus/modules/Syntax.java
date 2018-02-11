@@ -26,16 +26,43 @@ public class Syntax {
         syntaxList = lexicalScanner.getSyntaxList();
         matchingTerminators = new Stack<>();
         tokenIndices = new Stack<>();
+        checkSyntax();
+        System.out.println("Accepted syntax.");
+    }
+
+    private void checkSyntax(){
         if(blockStatements()){
-            System.out.println("accepted");
+            while(hasNextToken()){
+                getToken();
+                if(expectedToken(TokenType.IF_TERMINATOR) || expectedToken(TokenType.ELSEIF_TERMINATOR)
+                        || expectedToken(TokenType.ELSE_TERMINATOR) || expectedToken(TokenType.WHILE_TERMINATOR)
+                        || expectedToken(TokenType.DO_WHILE_TERMINATOR) || expectedToken(TokenType.FOR_TERMINATOR)
+                        || expectedToken(TokenType.ELSE) || expectedToken(TokenType.DO_WHILE)){
+                    currentIndex++;
+                    continue;
+                }
+                else{
+                    if(variableDeclaration() || IOOperation() || forLoop() || assignment() || cond() || conditionals()){
+                        currentIndex++;
+                        continue;
+                    }
+                    else{
+                        syntaxError("Ambiguous syntax error");
+                        System.exit(0);
+                        break;
+                    }
+                }
+            }
         }
         else{
             syntaxError("Ambiguous syntax error");
+            System.exit(0);
         }
     }
 
     //VARIABLE DECLARATION
     private boolean variableDeclaration(){
+
         //System.out.println("VARIABLE DECLARATION");
         getToken();
         //System.out.println(currentToken.getData());
@@ -91,7 +118,7 @@ public class Syntax {
             }
             else{
                 syntaxError("Expecting identifier");
-
+                System.exit(0);
                 return false;
             }
         }
@@ -103,15 +130,14 @@ public class Syntax {
         getToken();
         if(expectedToken(TokenType.OUTPUT_OPERATION)){
             currentIndex++;
-            getToken("Expecting literal or identifier");
-            if(expectedToken(TokenType.IDENTIFIER) || expectedToken(TokenType.LITERAL)){
-                currentIndex++;
-
+            getToken("Expecting expression");
+            if(expression()){
+                //currentIndex++;
                 return true;
             }
             else{
-                syntaxError("Expecting literal or identifier");
-
+                syntaxError("Expecting expression");
+                System.exit(0);
                 return false;
             }
         }
@@ -239,9 +265,19 @@ public class Syntax {
                     mismatch = true;
             }
             else if(expectedToken(TokenType.DO_WHILE_TERMINATOR)){
+                //dapat after neto, cond kagad.
                 if(matchingTerminators.peek() == TokenType.DO_WHILE){
                     matchingTerminators.pop();
                     tokenIndices.pop();
+
+                    saveIndex();
+                    currentIndex++;
+                    if(!cond()){
+                        syntaxError("Expecting cond for do while", savedIndex);
+                        System.exit(0);
+                    }
+                    backtrackIndex();
+                    getToken();
                 }
                 else
                     mismatch = true;
@@ -269,6 +305,105 @@ public class Syntax {
     }
     //BLOCK STATEMENTS
 
+    //cond do while
+    private boolean cond(){
+        getToken("Expecting cond");
+        if(expectedToken(TokenType.COND)){
+            currentIndex++;
+            getToken("Expecting expression");
+            if(expression() && hasSemiColon()){
+                //currentIndex++;
+                return true;
+            }
+            else{
+                syntaxError("Expecting expression");
+                System.exit(0);
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+    //cond do while
+
+    //if, elseif, while, do cond
+    private boolean conditionals(){
+        getToken("Expecting conditional");
+        if(expectedToken(TokenType.IF) || expectedToken(TokenType.ELSEIF)
+                || expectedToken(TokenType.WHILE)){
+            currentIndex++;
+            getToken("Expecting expression");
+            if(expression()){
+                currentIndex--;
+                return true;
+            }
+            else{
+                syntaxError("Expecting expression");
+                System.exit(0);
+
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+    //if, elseif, while, do cond
+
+    //for loop
+    private boolean forLoop(){
+        getToken("Incomplete syntax for \"for\" loop");
+        if(expectedToken(TokenType.FOR)){
+            currentIndex++;
+            getToken("Expecting variable declaration ; expression ; identifier");
+            if(variableDeclaration()){
+                currentIndex++;
+                getToken("Expecting expression ; identifier");
+                if(expression() && hasSemiColon()){
+                    currentIndex++;
+                    getToken("Expecting identifier");
+                    if(expectedToken(TokenType.IDENTIFIER)){
+                        currentIndex++;
+                        getToken("Expecting line terminator ;");
+                        if(hasSemiColon()){
+                            //currentIndex++;
+                            return true;
+                        }
+                        else{
+                            syntaxError("Expecting line terminator ;");
+                            System.exit(0);
+
+                            return false;
+                        }
+                    }
+                    else{
+                        syntaxError("Expecting identifier");
+                        System.exit(0);
+
+                        return false;
+                    }
+                }
+                else{
+                    syntaxError("Expecting ; expression ; identifier");
+                    System.exit(0);
+
+                    return false;
+                }
+            }
+            else{
+                syntaxError("Expecting variable declaration");
+                System.exit(0);
+
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+    //for loop
+
     private boolean lineStatement(){
         return variableDeclaration() || assignment() || IOOperation();
     }
@@ -292,6 +427,7 @@ public class Syntax {
                 }
                 else{
                     syntaxError("JPP only allows the use of one relational operator per expression");
+                    System.exit(0);
                     return false;
                 }
             }
@@ -331,6 +467,7 @@ public class Syntax {
         }
         else{
             syntaxError("Expecting literal or identifier");
+            System.exit(0);
             return false;
         }
     }
@@ -345,6 +482,7 @@ public class Syntax {
         getToken("Missing line terminator: ;");
         if(!expectedToken(TokenType.LINE_TERMINATOR)){
             syntaxError("Missing line terminator: ;");
+            System.exit(0);
             return false;
         }
         else{
@@ -403,48 +541,4 @@ public class Syntax {
 
         return false; //para lang masabay sa return statement.
     }
-
-    /*private boolean ifClause(){
-        getToken();
-        if(expectedToken(TokenType.IF)){
-            currentIndex++;
-            getToken("Expecting expression");
-            if(expression()){
-                //dagdag current index or not
-                saveIndex();
-                boolean hasIfTerminator = false;
-                boolean overlappedClause = false;
-                for(; hasNextToken(); currentIndex++){
-                    getToken();
-                    if(expectedToken(TokenType.ELSEIF) || expectedToken(TokenType.ELSEIF_TERMINATOR)
-                            || expectedToken(TokenType.ELSE) || expectedToken(TokenType.ELSE_TERMINATOR)){
-                            overlappedClause = true;
-                            break;
-                    }
-                    else if(expectedToken(TokenType.IF_TERMINATOR)){
-                        hasIfTerminator = true; //what if may statement sa gitna ng if elseif else clause?
-                        break;
-                    }
-                }
-                if(overlappedClause){
-                    syntaxError("If clause should be terminated first");
-                    return false;
-                }
-                else if(hasIfTerminator){
-
-                }
-                else{
-                    syntaxError("Missing if terminator ");
-                }
-
-            }
-            else{
-                syntaxError("Expecting expression");
-                return false;
-            }
-        }
-        else{
-            return false;
-        }
-    }*/
 }
