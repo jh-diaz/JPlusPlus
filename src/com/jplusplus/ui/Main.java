@@ -14,8 +14,10 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ui.fxml"));
         loader.setControllerFactory(t ->new Controller(new Model()));
 
+        Scene scene = new Scene(loader.load());
+        scene.getStylesheets().add(this.getClass().getResource("keywords.css").toExternalForm());
         primaryStage.setTitle("Text Editor");
-        primaryStage.setScene(new Scene(loader.load()));
+        primaryStage.setScene(scene);
         primaryStage.show();
         new About();
     }

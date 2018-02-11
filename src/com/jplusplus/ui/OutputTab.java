@@ -7,13 +7,14 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import org.fxmisc.richtext.CodeArea;
 
 import java.util.List;
 
 public class OutputTab extends Tab{
     private SplitPane splitPane;
     private AnchorPane apane;
-    private TextArea output;
+    private CodeArea output;
     private static int total=0;
     public OutputTab(SplitPane splitPane){
         total++;
@@ -22,7 +23,7 @@ public class OutputTab extends Tab{
         setText("atetsaedfsxc");
         apane = new AnchorPane();
 
-        output = new TextArea();
+        output = new CodeArea();
         output.setEditable(true);
         apane.getChildren().add(output);
         AnchorPane.setLeftAnchor(output, 5.0);

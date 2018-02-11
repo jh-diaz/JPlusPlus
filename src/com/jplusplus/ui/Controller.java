@@ -1,30 +1,39 @@
 package com.jplusplus.ui;
 
+import com.sun.org.apache.bcel.internal.classfile.LineNumber;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import org.fxmisc.richtext.CodeArea;
+import org.fxmisc.richtext.LineNumberFactory;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.function.IntFunction;
 
 public class Controller {
 
-    @FXML private TextArea textarea;
     private Model model;
     private JPPFile currentFile;
     @FXML private Text updates;
     @FXML private SplitPane splitPane;
     @FXML private TabPane tabs;
+    @FXML private CodeTextArea textarea;
+    @FXML private AnchorPane ap;
+
 
     public Controller(Model model){
         this.model = model;
     }
     @FXML
     protected void initialize(){
+        textarea = new CodeTextArea();
+        ap.getChildren().add(textarea);
         TextEditorEvents.addTextAreaEvents(textarea, updates);
     }
 

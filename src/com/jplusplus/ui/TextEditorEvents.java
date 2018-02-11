@@ -3,10 +3,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import org.fxmisc.richtext.CodeArea;
 
 public class TextEditorEvents {
 
-    public static void addTextAreaEvents(TextArea area, Text text){
+    public static void addTextAreaEvents(CodeArea area, Text text){
 
         area.textProperty().addListener(new ChangeListener<String>() {
             @Override
