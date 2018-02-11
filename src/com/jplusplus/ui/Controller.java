@@ -1,5 +1,6 @@
 package com.jplusplus.ui;
 
+import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -44,8 +45,15 @@ public class Controller {
         }
     }
     @FXML private void onSave(){
-        JPPFile file = new JPPFile(currentFile.getPath(), Arrays.asList(textarea.getText().split("\n")));
-        model.save(file);
+        if(currentFile!=null) {
+            JPPFile file = new JPPFile(currentFile.getPath(), Arrays.asList(textarea.getText().split("\n")));
+            model.save(file);
+        }
+        else {
+            JPPFile file = new JPPFile(Arrays.asList(textarea.getText().split("\n")));
+            currentFile = file;
+            model.saveNewFile(file);
+        }
     }
     @FXML private void onClose(){
         model.close();
@@ -53,7 +61,11 @@ public class Controller {
     @FXML private void onRun(){
         //do something about getting data from compiler
         OutputTab ot = new OutputTab(splitPane);
-                ot.setText("walao");
+        ot.setText("Output");
+        if(currentFile!=null)
+            ot.setTextAreaText(currentFile.getContent());
+        else
+            ot.setTextAreaText(Arrays.asList(textarea.getText().split("\n")));
         tabs.getTabs().add(ot);
     }
     @FXML private void onStop(){

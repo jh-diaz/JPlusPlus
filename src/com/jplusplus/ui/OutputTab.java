@@ -8,6 +8,8 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.List;
+
 public class OutputTab extends Tab{
     private SplitPane splitPane;
     private AnchorPane apane;
@@ -40,8 +42,9 @@ public class OutputTab extends Tab{
                 total--;
             }
         });
-
-
+    }
+    public void setTextAreaText(List<String> content){
+        content.forEach( text -> output.appendText(text+"\n"));
     }
 
 
