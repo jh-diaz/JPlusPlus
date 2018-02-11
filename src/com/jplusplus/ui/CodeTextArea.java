@@ -14,10 +14,10 @@ import java.util.regex.Pattern;
 
 public class CodeTextArea extends CodeArea {
     private static final String[] KEYWORDS = {
-            "integer", "fraction", "nibble", "bool", "string",
+            "integer", "fraction", "nibble", "bool", "word",
             "input", "output",
             "if", "endif", "else", "endelse", "elseif", "endelseif",
-            "cond", "while", "endwhile", "for", "endfor", "enddo"
+            "cond", "while", "endwhile", "for", "endfor","do", "enddo"
     };
     private static final String KEYWORDS_PATTERN = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
     private static final Pattern PATTERN = Pattern.compile(KEYWORDS_PATTERN);
@@ -25,7 +25,7 @@ public class CodeTextArea extends CodeArea {
     public CodeTextArea(){
 
         IntFunction<String> frmt = (digits -> " %" + digits +"d ");
-        setParagraphGraphicFactory(LineNumberFactory.get(this,frmt));
+        setParagraphGraphicFactory(LineNumberFactory.get(this, frmt));
 
 
         AnchorPane.setLeftAnchor(this, 5.0);

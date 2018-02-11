@@ -7,6 +7,7 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.fxmisc.richtext.CodeArea;
 
 import java.util.List;
@@ -25,11 +26,12 @@ public class OutputTab extends Tab{
 
         output = new CodeArea();
         output.setEditable(true);
-        apane.getChildren().add(output);
-        AnchorPane.setLeftAnchor(output, 5.0);
-        AnchorPane.setBottomAnchor(output, 5.0);
-        AnchorPane.setTopAnchor(output, 5.0);
-        AnchorPane.setRightAnchor(output, 5.0);
+        VirtualizedScrollPane vsp = new VirtualizedScrollPane(output);
+        AnchorPane.setLeftAnchor(vsp, 5.0);
+        AnchorPane.setBottomAnchor(vsp, 5.0);
+        AnchorPane.setTopAnchor(vsp, 5.0);
+        AnchorPane.setRightAnchor(vsp, 5.0);
+        apane.getChildren().add(vsp);
         setContent(apane);
 
 
