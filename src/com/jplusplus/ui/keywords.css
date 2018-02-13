@@ -1,4 +1,22 @@
 .keyword {
+-fx-fill:darkblue;
+-fx-font-weight:bold;
+}
+.vars{
 -fx-fill:purple;
--fx-font-color:bold;
+-fx-font-weight:bold;
+}
+.words{
+-fx-fill:green;
+-fx-font-weight:bold;
+}
+.terminator{
+-fx-fill:red;
+-fx-font-weight:bold;
+}
+.comments{
+-fx-fill:gray;
+}
+.numbers{
+-fx-fill:blue;
 }

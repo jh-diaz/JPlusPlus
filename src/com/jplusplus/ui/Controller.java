@@ -1,5 +1,7 @@
 package com.jplusplus.ui;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -15,10 +17,10 @@ public class Controller {
     private Model model;
     private JPPFile currentFile;
     @FXML private Text updates;
-    @FXML private SplitPane splitPane;
+    @FXML private SplitPane splitPaneBottom, splitPaneLeft;
     @FXML private TabPane tabs;
     @FXML private CodeTextArea textarea;
-    @FXML private AnchorPane ap;
+    @FXML private AnchorPane ap, tap;
 
 
     public Controller(Model model){
@@ -32,6 +34,8 @@ public class Controller {
         AnchorPane.setBottomAnchor(vsp, 5.0);
         AnchorPane.setTopAnchor(vsp, 5.0);
         AnchorPane.setRightAnchor(vsp, 5.0);
+
+
         ap.getChildren().add(vsp);
         TextEditorEvents.addTextAreaEvents(textarea, updates);
     }
@@ -46,7 +50,7 @@ public class Controller {
         if(file != null){
             Result<JPPFile> result = model.open(file.toPath());
             if(result.isTrue() && result.hasContent()){
-                currentFile = result.getContent();
+                currentFile = (result.getContent());
                 textarea.clear();
                 currentFile.getContent().forEach(e -> textarea.appendText(e + "\n"));
             }
@@ -56,12 +60,12 @@ public class Controller {
     @FXML private void onSave(){
         if(currentFile!=null) {
             JPPFile file = new JPPFile(currentFile.getPath(), Arrays.asList(textarea.getText().split("\n")));
-            currentFile = file;
+            currentFile = (file);
             model.save(file);
         }
         else{
             JPPFile file = new JPPFile(Arrays.asList(textarea.getText().split("\n")));
-            currentFile = file;
+            currentFile = (file);
             model.saveNewFile(currentFile);
         }
         Main.setTitle(currentFile.getFilename());
@@ -71,17 +75,21 @@ public class Controller {
     }
     @FXML private void onRun(){
         onSave();
-        tabs.getTabs().add(model.run(currentFile, splitPane));
+        tabs.getTabs().add(model.run(currentFile, splitPaneBottom));
+        tabs.getSelectionModel().selectLast();
     }
     @FXML private void onStop(){
-
+        //can we even stop it?
     }
     @FXML private void onAbout(){
+        String editorInfo = "JPP Text Editor.\n"+"Version: "+ About.version + "\nAbout: "+ About.about;
+        String fileInfo="";
+        if(currentFile!=null)
+            fileInfo = "\nCurrent file is: "+currentFile.getFilename()+"\nLocation: "+currentFile.getPath();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("About");
         alert.setTitle("About");
-        alert.setContentText("JPP Text Editor.\n"+"Version: "+ About.version + "\nAbout: "+ About.about);
+        alert.setContentText(editorInfo + fileInfo);
         alert.show();
-
     }
 }

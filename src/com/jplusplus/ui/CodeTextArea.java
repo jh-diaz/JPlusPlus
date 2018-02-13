@@ -20,7 +20,18 @@ public class CodeTextArea extends CodeArea {
             "cond", "while", "endwhile", "for", "endfor","do", "enddo"
     };
     private static final String KEYWORDS_PATTERN = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
-    private static final Pattern PATTERN = Pattern.compile(KEYWORDS_PATTERN);
+    private static final String VARIABLES = "\\b__[a-zA-Z]*\\b";
+    private static final String WORDS = "\".*\"";
+    private static final String TERMINATOR = ";";
+    private static final String COMMENTS = "\\\\.* | //.*";
+    private static final String NUMBERS = "\\d";
+    private static final Pattern PATTERN = Pattern.compile(
+            "(?<KEYWORD>" + KEYWORDS_PATTERN + ")"
+                    + "|(?<VARS>"+VARIABLES+")"
+                    + "|(?<TERMINATOR>"+TERMINATOR+")"
+                    + "|(?<COMMENTS>"+COMMENTS+")"
+                    + "|(?<NUMBERS>"+NUMBERS+")"
+                    + "|(?<WORDS>"+WORDS+")");
 
     public CodeTextArea(){
 
@@ -28,13 +39,8 @@ public class CodeTextArea extends CodeArea {
         setParagraphGraphicFactory(LineNumberFactory.get(this, frmt));
 
 
-        AnchorPane.setLeftAnchor(this, 5.0);
-        AnchorPane.setBottomAnchor(this, 5.0);
-        AnchorPane.setTopAnchor(this, 5.0);
-        AnchorPane.setRightAnchor(this, 5.0);
-
         richChanges()
-                .filter(ch -> !ch.getInserted().equals(ch.getRemoved())) // XXX
+                .filter(ch -> !ch.getInserted().equals(ch.getRemoved()))
                 .subscribe(change -> {
                     setStyleSpans(0, computeHighlighting(getText()));
                 });
@@ -45,7 +51,13 @@ public class CodeTextArea extends CodeArea {
         StyleSpansBuilder<Collection<String>> spb = new StyleSpansBuilder<>();
 
         while(matcher.find()){
-            String style = "keyword";
+            String style =
+                    matcher.group("KEYWORD")!=null?"keyword":
+                            matcher.group("VARS")!=null?"vars":
+                            matcher.group("TERMINATOR")!=null?"terminator":
+                            matcher.group("COMMENTS")!=null?"comments":
+                            matcher.group("NUMBERS")!=null?"numbers":
+                            matcher.group("WORDS")!=null?"words":null;
             spb.add(Collections.emptyList(), matcher.start() - lastKwEnd);
             spb.add(Collections.singleton(style), matcher.end()-matcher.start());
             lastKwEnd = matcher.end();
