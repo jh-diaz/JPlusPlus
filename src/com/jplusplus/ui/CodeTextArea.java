@@ -21,9 +21,9 @@ public class CodeTextArea extends CodeArea {
     };
     private static final String KEYWORDS_PATTERN = "\\b(" + String.join("|", KEYWORDS) + ")\\b";
     private static final String VARIABLES = "\\b__[a-zA-Z]*\\b";
-    private static final String WORDS = "\".*\"";
+    private static final String WORDS = "\"([^\"\\\\]|\\\\.)*\"";
     private static final String TERMINATOR = ";";
-    private static final String COMMENTS = "\\\\.* | //.*";
+    private static final String COMMENTS = "//.*";
     private static final String NUMBERS = "\\d";
     private static final Pattern PATTERN = Pattern.compile(
             "(?<KEYWORD>" + KEYWORDS_PATTERN + ")"
