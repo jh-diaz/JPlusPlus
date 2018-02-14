@@ -23,6 +23,8 @@ public class CodeTextArea extends CodeArea {
     private static final String VARIABLES = "\\b__[a-zA-Z]*\\b";
     private static final String WORDS = "\"([^\"\\\\]|\\\\.)*\"";
     private static final String TERMINATOR = ";";
+    private static final String CHARACTER = "'[a-zA-Z]'";
+    private static final String BOOLEAN = "true|false";
     private static final String COMMENTS = "//.*";
     private static final String NUMBERS = "\\d";
     private static final Pattern PATTERN = Pattern.compile(
@@ -30,6 +32,8 @@ public class CodeTextArea extends CodeArea {
                     + "|(?<VARS>"+VARIABLES+")"
                     + "|(?<TERMINATOR>"+TERMINATOR+")"
                     + "|(?<COMMENTS>"+COMMENTS+")"
+                    + "|(?<CHARACTER>"+CHARACTER+")"
+                    + "|(?<BOOLEAN>"+BOOLEAN+")"
                     + "|(?<NUMBERS>"+NUMBERS+")"
                     + "|(?<WORDS>"+WORDS+")");
 
@@ -57,6 +61,8 @@ public class CodeTextArea extends CodeArea {
                             matcher.group("TERMINATOR")!=null?"terminator":
                             matcher.group("COMMENTS")!=null?"comments":
                             matcher.group("NUMBERS")!=null?"numbers":
+                            matcher.group("CHARACTER")!=null?"character":
+                            matcher.group("BOOLEAN")!=null?"boolean":
                             matcher.group("WORDS")!=null?"words":null;
             spb.add(Collections.emptyList(), matcher.start() - lastKwEnd);
             spb.add(Collections.singleton(style), matcher.end()-matcher.start());

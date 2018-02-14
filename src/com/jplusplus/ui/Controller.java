@@ -30,10 +30,10 @@ public class Controller {
     protected void initialize(){
         textarea = new CodeTextArea();
         VirtualizedScrollPane vsp = new VirtualizedScrollPane(textarea);
-        AnchorPane.setLeftAnchor(vsp, 5.0);
-        AnchorPane.setBottomAnchor(vsp, 5.0);
-        AnchorPane.setTopAnchor(vsp, 5.0);
-        AnchorPane.setRightAnchor(vsp, 5.0);
+        AnchorPane.setLeftAnchor(vsp, 0.0);
+        AnchorPane.setBottomAnchor(vsp, 0.0);
+        AnchorPane.setTopAnchor(vsp, 0.0);
+        AnchorPane.setRightAnchor(vsp, 0.0);
 
 
         ap.getChildren().add(vsp);
@@ -55,9 +55,10 @@ public class Controller {
                 currentFile.getContent().forEach(e -> textarea.appendText(e + "\n"));
             }
         }
-        Main.setTitle(currentFile.getFilename());
+        if(currentFile!=null)
+            Main.setTitle(currentFile.getFilename());
     }
-    @FXML private void onSave(){
+    @FXML protected void onSave(){
         if(currentFile!=null) {
             JPPFile file = new JPPFile(currentFile.getPath(), Arrays.asList(textarea.getText().split("\n")));
             currentFile = (file);
@@ -65,15 +66,16 @@ public class Controller {
         }
         else{
             JPPFile file = new JPPFile(Arrays.asList(textarea.getText().split("\n")));
-            currentFile = (file);
-            model.saveNewFile(currentFile);
+            if(model.saveNewFile(file))
+                currentFile = (file);
         }
-        Main.setTitle(currentFile.getFilename());
+        if(currentFile!=null)
+            Main.setTitle(currentFile.getFilename());
     }
     @FXML private void onClose(){
         model.close();
     }
-    @FXML private void onRun(){
+    @FXML protected void onRun(){
         onSave();
         tabs.getTabs().add(model.run(currentFile, splitPaneBottom));
         tabs.getSelectionModel().selectLast();

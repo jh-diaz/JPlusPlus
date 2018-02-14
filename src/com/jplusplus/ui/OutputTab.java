@@ -27,10 +27,10 @@ public class OutputTab extends Tab{
         output = new CodeArea();
         output.setEditable(true);
         VirtualizedScrollPane vsp = new VirtualizedScrollPane(output);
-        AnchorPane.setLeftAnchor(vsp, 5.0);
-        AnchorPane.setBottomAnchor(vsp, 5.0);
-        AnchorPane.setTopAnchor(vsp, 5.0);
-        AnchorPane.setRightAnchor(vsp, 5.0);
+        AnchorPane.setLeftAnchor(vsp, 0.0);
+        AnchorPane.setBottomAnchor(vsp, 0.0);
+        AnchorPane.setTopAnchor(vsp, 0.0);
+        AnchorPane.setRightAnchor(vsp, 0.0);
         apane.getChildren().add(vsp);
         setContent(apane);
 

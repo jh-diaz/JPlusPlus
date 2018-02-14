@@ -20,3 +20,11 @@
 .numbers{
 -fx-fill:blue;
 }
+.character{
+-fx-fill:darkgreen;
+-fx-font-weight:bold;
+}
+.boolean{
+-fx-fill:darkviolet;
+-fx-font-weight:bold;
+}

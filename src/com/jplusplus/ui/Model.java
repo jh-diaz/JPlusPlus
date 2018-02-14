@@ -22,7 +22,7 @@ public class Model {
             e.printStackTrace();
         }
     }
-    public void saveNewFile(JPPFile file){
+    public boolean saveNewFile(JPPFile file){
         try{
             FileChooser fileChooser = new FileChooser();
             fileChooser.setInitialDirectory(new File("./"));
@@ -35,9 +35,12 @@ public class Model {
                 file.setPath(path);
 
                 Files.write(path, file.getContent(), StandardOpenOption.CREATE_NEW);
+                return true;
             }
+            return false;
         } catch(IOException e){
             e.printStackTrace();
+            return false;
         }
     }
     public Result<JPPFile> open(Path file){
