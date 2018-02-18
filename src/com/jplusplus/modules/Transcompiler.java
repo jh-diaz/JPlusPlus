@@ -33,18 +33,18 @@ public class Transcompiler {
             int inputCountD =0;
             int inputCountS =0;
             int outputCount=0;
-            boolean forParameter=false;
+            int forSemicolonCount=0;
             int condCount =0;
             createClass();
             createMain();
             for (Token token : tokens) {
                 //System.out.println(token.getTokenType() + " "+token.getData() + " "+token.getLineNumber());
                 while (token.getLineNumber()!=line) {
-                    if(ifParameter || elseifParameter || whileParameter || forParameter){
+                    if(ifParameter || elseifParameter || whileParameter || forSemicolonCount!=0){
                         ifParameter = false;
                         elseifParameter = false;
                         whileParameter = false;
-                        forParameter = false;
+                        forSemicolonCount = 0;
                         writer.append("){");
                     }
                     line++;
@@ -71,8 +71,8 @@ public class Transcompiler {
                     inputCountS = writeStringInput(token, inputCountS);
                 else if(token.getTokenType() == TokenType.OUTPUT_OPERATION || outputCount!=0)
                     outputCount = writeOutput(token, outputCount);
-                else if(token.getTokenType() == TokenType.FOR || forParameter)
-                    forParameter = writeParen(token, forParameter);
+                else if(token.getTokenType() == TokenType.FOR || forSemicolonCount!=0)
+                    forSemicolonCount = writeFor(token, forSemicolonCount);
                 else if(token.getTokenType() == TokenType.DO_WHILE)
                     writer.append("do{ ");
                 else if(token.getTokenType() == TokenType.COND || condCount!=0)
@@ -140,16 +140,22 @@ public class Transcompiler {
         else
             writer.append(token.getData());
         return ifParameter;
-    }
-    private boolean writeFor(Token token, boolean ifParameter) throws IOException{
-        if(!ifParameter) {
+    }*/
+    private int writeFor(Token token, int forSemicolonCount) throws IOException{
+        if(forSemicolonCount==0) {
             writer.append(token.getData()+"(");
-            ifParameter = true;
+            forSemicolonCount++;
+        }
+        else if(token.getTokenType() == TokenType.LINE_TERMINATOR) {
+            forSemicolonCount++;
+            System.out.println(forSemicolonCount);
+            if(forSemicolonCount<=3)
+                writer.append(token.getData());
         }
         else
             writer.append(token.getData());
-        return ifParameter;
-    }*/
+        return forSemicolonCount;
+    }
     private void writeScanner() throws IOException{
         writer.append("java.util.Scanner scanner = new java.util.Scanner(System.in);\n");
         isScannerCreated = true;
