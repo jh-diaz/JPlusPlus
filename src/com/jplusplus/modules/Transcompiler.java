@@ -4,8 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class Transcompiler {
     private Token[] tokens;
@@ -55,13 +53,13 @@ public class Transcompiler {
                 }
 
                 if(token.getTokenType() == TokenType.IF || ifParameter)
-                    ifParameter = writeIf(token, ifParameter);
+                    ifParameter = writeParen(token, ifParameter);
                 else if(token.getTokenType() == TokenType.ELSEIF || elseifParameter)
                     elseifParameter = writeElseIf(token, elseifParameter);
                 else if(token.getTokenType() == TokenType.ELSE)
                     writer.append("else{ ");
                 else if(token.getTokenType() == TokenType.WHILE || whileParameter)
-                    whileParameter = writeWhile(token, whileParameter);
+                    whileParameter = writeParen(token, whileParameter);
                 else if(token.getTokenType() == TokenType.INPUT_BOOLEAN_OPERATION || inputCountB!=0)
                     inputCountB = writeBooleanInput(token, inputCountB);
                 else if(token.getTokenType() == TokenType.INPUT_INTEGER_OPERATION || inputCountI!=0)
@@ -74,7 +72,7 @@ public class Transcompiler {
                 else if(token.getTokenType() == TokenType.OUTPUT_OPERATION || outputCount!=0)
                     outputCount = writeOutput(token, outputCount);
                 else if(token.getTokenType() == TokenType.FOR || forParameter)
-                    forParameter = writeFor(token, forParameter);
+                    forParameter = writeParen(token, forParameter);
                 else if(token.getTokenType() == TokenType.DO_WHILE)
                     writer.append("do{ ");
                 else if(token.getTokenType() == TokenType.COND || condCount!=0)
@@ -115,7 +113,7 @@ public class Transcompiler {
         if(writer != null)
             writer.append("\n}}");
     }
-    private boolean writeIf(Token token, boolean ifParameter) throws IOException{
+    private boolean writeParen(Token token, boolean ifParameter) throws IOException{
         if(!ifParameter) {
             writer.append(token.getData()+"(");
             ifParameter = true;
@@ -134,7 +132,7 @@ public class Transcompiler {
             writer.append(token.getData());
         return ifParameter;
     }
-    private boolean writeWhile(Token token, boolean ifParameter) throws IOException{
+    /*private boolean writeWhile(Token token, boolean ifParameter) throws IOException{
         if(!ifParameter) {
             writer.append(token.getData()+"(");
             ifParameter = true;
@@ -151,7 +149,7 @@ public class Transcompiler {
         else
             writer.append(token.getData());
         return ifParameter;
-    }
+    }*/
     private void writeScanner() throws IOException{
         writer.append("java.util.Scanner scanner = new java.util.Scanner(System.in);\n");
         isScannerCreated = true;
