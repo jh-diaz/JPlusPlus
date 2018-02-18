@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Transcompiler {
     private Token[] tokens;
@@ -26,33 +27,41 @@ public class Transcompiler {
             temp = File.createTempFile("jpp", ".java");
             writer = new BufferedWriter(new FileWriter(temp));
             int line=0;
-            int ifParameterCount=0;
-            int elseifParameterCount=0;
-            int whileParameterCount=0;
+            boolean ifParameter=false;
+            boolean elseifParameter=false;
+            boolean whileParameter=false;
             int inputCountB =0;
             int inputCountI =0;
             int inputCountD =0;
             int inputCountS =0;
             int outputCount=0;
-            int forCount=0;
+            boolean forParameter=false;
             int condCount =0;
             createClass();
             createMain();
             for (Token token : tokens) {
                 //System.out.println(token.getTokenType() + " "+token.getData() + " "+token.getLineNumber());
                 while (token.getLineNumber()!=line) {
+                    if(ifParameter || elseifParameter || whileParameter || forParameter){
+                        ifParameter = false;
+                        elseifParameter = false;
+                        whileParameter = false;
+                        forParameter = false;
+                        writer.append("){");
+                    }
                     line++;
                     writer.append("\n");
+
                 }
 
-                if(token.getTokenType() == TokenType.IF || ifParameterCount!=0)
-                    ifParameterCount = writeIf(token, ifParameterCount);
-                else if(token.getTokenType() == TokenType.ELSEIF || elseifParameterCount!=0)
-                    elseifParameterCount = writeElseIf(token, elseifParameterCount);
+                if(token.getTokenType() == TokenType.IF || ifParameter)
+                    ifParameter = writeIf(token, ifParameter);
+                else if(token.getTokenType() == TokenType.ELSEIF || elseifParameter)
+                    elseifParameter = writeElseIf(token, elseifParameter);
                 else if(token.getTokenType() == TokenType.ELSE)
-                    writer.append("else ");
-                else if(token.getTokenType() == TokenType.WHILE || whileParameterCount!=0)
-                    whileParameterCount = writeWhile(token, whileParameterCount);
+                    writer.append("else{ ");
+                else if(token.getTokenType() == TokenType.WHILE || whileParameter)
+                    whileParameter = writeWhile(token, whileParameter);
                 else if(token.getTokenType() == TokenType.INPUT_BOOLEAN_OPERATION || inputCountB!=0)
                     inputCountB = writeBooleanInput(token, inputCountB);
                 else if(token.getTokenType() == TokenType.INPUT_INTEGER_OPERATION || inputCountI!=0)
@@ -64,8 +73,8 @@ public class Transcompiler {
                     inputCountS = writeStringInput(token, inputCountS);
                 else if(token.getTokenType() == TokenType.OUTPUT_OPERATION || outputCount!=0)
                     outputCount = writeOutput(token, outputCount);
-                else if(token.getTokenType() == TokenType.FOR || forCount!=0)
-                    forCount = writeFor(token, forCount);
+                else if(token.getTokenType() == TokenType.FOR || forParameter)
+                    forParameter = writeFor(token, forParameter);
                 else if(token.getTokenType() == TokenType.DO_WHILE)
                     writer.append("do{ ");
                 else if(token.getTokenType() == TokenType.COND || condCount!=0)
@@ -100,78 +109,48 @@ public class Transcompiler {
     }
     private void createMain()throws IOException{
         if(writer != null)
-            writer.append("public static void main(String[] args){\n");
+            writer.append("static{\n");
     }
     private void endFile()throws IOException{
         if(writer != null)
             writer.append("\n}}");
     }
-    private int writeIf(Token token, int parameterCount) throws IOException{
-        if(parameterCount==0) {
+    private boolean writeIf(Token token, boolean ifParameter) throws IOException{
+        if(!ifParameter) {
             writer.append(token.getData()+"(");
-            parameterCount++;
+            ifParameter = true;
         }
-        else if(token.getData().equals("true") || token.getData().equals("false"))
-            parameterCount=4;
-        else{
+        else
             writer.append(token.getData());
-            parameterCount++;
-        }
-        if(parameterCount==4){
-            parameterCount=0;
-            writer.append("){");
-        }
-        return parameterCount;
+
+        return ifParameter;
     }
-    private int writeElseIf(Token token, int parameterCount) throws IOException{
-        if(parameterCount==0) {
+    private boolean writeElseIf(Token token, boolean ifParameter) throws IOException{
+        if(!ifParameter) {
             writer.append("else if (");
-            parameterCount++;
+            ifParameter=true;
         }
-        else if(token.getData().equals("true") || token.getData().equals("false"))
-            parameterCount=4;
-        else{
+        else
             writer.append(token.getData());
-            parameterCount++;
-        }
-        if(parameterCount==4){
-            parameterCount=0;
-            writer.append("){");
-        }
-        return parameterCount;
+        return ifParameter;
     }
-    private int writeWhile(Token token, int parameterCount) throws IOException{
-        if(parameterCount==0) {
+    private boolean writeWhile(Token token, boolean ifParameter) throws IOException{
+        if(!ifParameter) {
             writer.append(token.getData()+"(");
-            parameterCount++;
+            ifParameter = true;
         }
-        else if(token.getData().equals("true") || token.getData().equals("false"))
-            parameterCount=4;
-        else{
+        else
             writer.append(token.getData());
-            parameterCount++;
-        }
-        if(parameterCount==4){
-            parameterCount=0;
-            writer.append("){");
-        }
-        return parameterCount;
+        return ifParameter;
     }
-    private int writeFor(Token token, int parameterCount) throws IOException{
-        if(parameterCount==0) {
+    private boolean writeFor(Token token, boolean ifParameter) throws IOException{
+        if(!ifParameter) {
             writer.append(token.getData()+"(");
-            parameterCount++;
+            ifParameter = true;
         }
-        else if(token.getTokenType() == TokenType.LINE_TERMINATOR)
-            parameterCount++;
-        else{
+        else
             writer.append(token.getData());
-        }
-        if(parameterCount==4){
-            parameterCount=0;
-            writer.append("){");
-        }
-        return parameterCount;
+        return ifParameter;
     }
     private void writeScanner() throws IOException{
         writer.append("java.util.Scanner scanner = new java.util.Scanner(System.in);\n");
