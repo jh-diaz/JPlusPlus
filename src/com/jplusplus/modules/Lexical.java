@@ -267,7 +267,7 @@ public class Lexical implements LexicalScannerInterface {
     }
 
     private boolean isNibble(String str){
-        return str.charAt(0) == '\'' && str.charAt(str.length()-1) == '\'' && str.length() == 3;
+        return str.charAt(0) == '\'' && str.charAt(str.length()-1) == '\'' && (str.length() == 3 || str.length()==2);
     }
 
     private boolean isWord(String str){
