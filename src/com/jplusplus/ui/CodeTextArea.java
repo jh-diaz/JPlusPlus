@@ -42,7 +42,6 @@ public class CodeTextArea extends CodeArea {
         IntFunction<String> frmt = (digits -> " %" + digits +"d ");
         setParagraphGraphicFactory(LineNumberFactory.get(this, frmt));
 
-
         richChanges()
                 .filter(ch -> !ch.getInserted().equals(ch.getRemoved()))
                 .subscribe(change -> {

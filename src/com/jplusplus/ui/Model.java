@@ -34,7 +34,7 @@ public class Model {
                 Path path = Paths.get(saveFile.getPath());
                 file.setPath(path);
 
-                Files.write(path, file.getContent(), StandardOpenOption.CREATE_NEW);
+                Files.write(path, file.getContent());
                 return true;
             }
             return false;

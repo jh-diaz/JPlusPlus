@@ -2,12 +2,13 @@ package com.jplusplus.modules;
 
 import com.jplusplus.exceptions.SyntaxError;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 /**
  * Created by Joshua on 11/15/2017.
  */
-public class Syntax {
+public class Syntax implements SyntaxScannerInterface{
     private LexicalScannerInterface lexicalScanner;
     private Token currentToken;
     private int currentIndex;
@@ -17,6 +18,7 @@ public class Syntax {
     private String[] syntaxList;
     private Stack<TokenType> matchingTerminators;
     private Stack<Integer> tokenIndices;
+    private HashMap<String, Token> variableSymbolicTable;
 
     public Syntax(LexicalScannerInterface lexicalScanner){
         this.lexicalScanner = lexicalScanner;
@@ -65,7 +67,6 @@ public class Syntax {
 
         //System.out.println("VARIABLE DECLARATION");
         getToken();
-        //System.out.println(currentToken.getData());
         if(expectedToken(TokenType.DATA_TYPE)){
             currentIndex++;
             return assignment() && hasSemiColon();
@@ -540,5 +541,10 @@ public class Syntax {
         savedIndex = currentIndex;
 
         return false; //para lang masabay sa return statement.
+    }
+
+    @Override
+    public HashMap<String, Token> getVariableSymbolicTable() {
+        return variableSymbolicTable;
     }
 }

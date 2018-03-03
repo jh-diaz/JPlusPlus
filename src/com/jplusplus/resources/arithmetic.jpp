@@ -1,15 +1,9 @@
-if __x > 5
-    while __x + 2
-        if __x > 2
-        endif
-        else
-            if __x == 5
-            output "HI" ;
-                while __x > 5
-                    input.word __x ;
-                endwhile
-            endif
-            integer __x = 2 + 1 ;
-        endelse
+integer __x = 3 ;
+integer __y = 4 ;
+for integer __z = 1 ; __z > 4 ; __z++ ;
+    while 3 > 4
+        integer __a = 5 ;
     endwhile
-endif
+    integer __a = 5 ;
+endfor
+integer __a = 5 ;
