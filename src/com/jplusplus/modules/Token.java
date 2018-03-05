@@ -3,6 +3,7 @@ package com.jplusplus.modules;
 import com.jplusplus.datatypes.DataType;
 
 import javax.xml.crypto.Data;
+import java.util.Objects;
 
 /**
  * Created by Joshua on 11/15/2017.
@@ -74,5 +75,19 @@ public class Token {
 
     public DataType getDataType() {
         return dataType;
+    }
+
+    @Override
+    public int hashCode(){
+        return data.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(o == this) return true;
+        if(!(o instanceof Token))
+            return false;
+        Token token = (Token) o;
+        return data.equals(token.getData());
     }
 }
