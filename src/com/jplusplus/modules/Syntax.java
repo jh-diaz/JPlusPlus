@@ -336,8 +336,14 @@ public class Syntax implements SyntaxScannerInterface{
             currentIndex++;
             getToken("Expecting expression");
             if(expression()){
-                currentIndex--;
-                return true;
+                if(hasSemiColon()) {
+                    return true;
+                }
+                else{
+                    syntaxError("Expecting semi colon");
+                    System.exit(0);
+                    return false;
+                }
             }
             else{
                 syntaxError("Expecting expression");
