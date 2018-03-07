@@ -30,15 +30,15 @@ public class Semantic {
                 if(!checkIncrementDecrement(token))
                     throwInvalidConditionals(token);
             }*/
-            if (token.getTokenType() == TokenType.DATA_TYPE || token.getTokenType() == TokenType.IDENTIFIER) {
+            /*if (token.getTokenType() == TokenType.DATA_TYPE || token.getTokenType() == TokenType.IDENTIFIER) {
                 if (!checkDeclaration())
                     throw new SemanticError("Invalid Declaration in line " + tokenList.get(index).getLineNumber() + " near " + tokenList.get(index).getData());
-            }
-            if (token.getTokenType() == TokenType.RELATIONAL_OPERATOR) {
+            }*/
+            /*if (token.getTokenType() == TokenType.RELATIONAL_OPERATOR) {
                 if (!checkRelational())
                     throwInvalidConditionals(token);
-            }
-            if (token.getTokenType() == TokenType.FOR ||
+            }*/
+            /*if (token.getTokenType() == TokenType.FOR ||
                     token.getTokenType() == TokenType.WHILE ||
                     token.getTokenType() == TokenType.DO_WHILE ||
                     token.getTokenType() == TokenType.IF ||
@@ -46,15 +46,20 @@ public class Semantic {
                     token.getTokenType() == TokenType.ELSE) {
                 initializedIdentifiers.add(token);
             }
-            if (token.getTokenType() == TokenType.WHILE ||
+            /*if (token.getTokenType() == TokenType.WHILE ||
                     token.getTokenType() == TokenType.IF ||
                     token.getTokenType() == TokenType.ELSEIF ||
                     token.getTokenType() == TokenType.COND ||
                     token.getTokenType() == TokenType.FOR)
                 if (!checkConditionals(token))
-                    throwInvalidConditionals(token);
+                    throwInvalidConditionals(token);*/
 
             switch (token.getTokenType()) {
+                case DATA_TYPE:
+                case IDENTIFIER:
+                    if (!checkDeclaration())
+                        throw new SemanticError("Invalid Declaration in line " + tokenList.get(index).getLineNumber() + " near " + tokenList.get(index).getData());
+                    break;
                 case FOR_TERMINATOR:
                     removeIdentifiersUntil(TokenType.FOR);
                     break;
@@ -72,6 +77,26 @@ public class Semantic {
                     break;
                 case ELSE_TERMINATOR:
                     removeIdentifiersUntil(TokenType.ELSE);
+                    break;
+
+                case COND:
+
+                    if (!checkConditionals(token))
+                        throwInvalidConditionals(token);
+                    break;
+                case WHILE:
+                case IF:
+                case ELSEIF:
+                case FOR:
+                    if (!checkConditionals(token))
+                        throwInvalidConditionals(token);
+                case ELSE:
+                case DO_WHILE:
+                    initializedIdentifiers.add(token);
+                    break;
+                case RELATIONAL_OPERATOR:
+                    if (!checkRelational())
+                        throwInvalidConditionals(token);
                     break;
             }
         }
@@ -124,22 +149,21 @@ public class Semantic {
                 second.setDataType(DataType.nibble);
         } else if (second.getTokenType() == TokenType.IDENTIFIER)
             second.setDataType(initializedIdentifiersSet.stream().filter(c -> c.equals(second)).findFirst().get().getDataType());
-            if ((first.getDataType() == DataType.integer || first.getDataType() == DataType.fraction) &&
-                    (second.getDataType() == DataType.integer || second.getDataType() == DataType.fraction))
-                return true;
-            if (first.getDataType() == second.getDataType())
-                return true;
+        if ((first.getDataType() == DataType.integer || first.getDataType() == DataType.fraction) &&
+                (second.getDataType() == DataType.integer || second.getDataType() == DataType.fraction))
+            return true;
+        if (first.getDataType() == second.getDataType())
+            return true;
 
 
-
-        throw new SemanticError("Invalid operations. Cannot compare " + first.getDataType() + " with " + second.getDataType() + " in line "+ first.getLineNumber());
+        throw new SemanticError("Invalid operations. Cannot compare " + first.getDataType() + " with " + second.getDataType() + " in line " + first.getLineNumber());
     }
 
     private boolean checkConditionals(Token token) {
         List<Token> conditionals = new ArrayList<>();
 
         int localIndex = index;
-        if(token.getTokenType() == TokenType.FOR) {
+        if (token.getTokenType() == TokenType.FOR) {
             while (tokenList.get(localIndex).getTokenType() != TokenType.LINE_TERMINATOR)
                 localIndex++;
             localIndex++;
@@ -173,8 +197,8 @@ public class Semantic {
             Optional<Token> ot = findToken(tokenList.get(index));
             if (ot.isPresent())
                 datatype = ot.get();
-            //else if (tokenList.get(index).getData().matches("__\\w+(\\+\\+)|__\\w+(\\-\\-)|(\\-\\-)__\\w+|(\\+\\+)__\\w+"))
-            //    datatype.setData(tokenList.get(index).getData().substring(0, tokenList.get(index).getData().length() - 2));
+                //else if (tokenList.get(index).getData().matches("__\\w+(\\+\\+)|__\\w+(\\-\\-)|(\\-\\-)__\\w+|(\\+\\+)__\\w+"))
+                //    datatype.setData(tokenList.get(index).getData().substring(0, tokenList.get(index).getData().length() - 2));
             else
                 throwUndeclaredVariableError(tokenList.get(index));
             --index;
@@ -212,18 +236,19 @@ public class Semantic {
             return false;
         if (literalOrEquation.size() > 1) {
             if (!isValidOperation(literalOrEquation, type))
-                throw new SemanticError("Invalid operations in line "+literalOrEquation.get(0).getLineNumber()+".");
+                throw new SemanticError("Invalid operations in line " + literalOrEquation.get(0).getLineNumber() + ".");
         }
 
         // int = 2, fraction = 4, nibble =6, bool = 8, word = 10
-        if(literalOrEquation.get(0).getTokenType() == TokenType.IDENTIFIER){
+        if (literalOrEquation.get(0).getTokenType() == TokenType.IDENTIFIER) {
             Optional<Token> opt = findToken(literalOrEquation.get(0));
-            if(opt.isPresent()) {
+            if (opt.isPresent()) {
                 DataType eqDatatype = opt.get().getDataType();
-                if (eqDatatype == datatype.getDataType())
+                if (eqDatatype == datatype.getDataType() ||
+                        (eqDatatype == DataType.integer && datatype.getDataType() == DataType.fraction ||
+                                eqDatatype == DataType.fraction && datatype.getDataType() == DataType.integer))
                     return true;
-            }
-            else
+            } else
                 throwUndeclaredVariableError(literalOrEquation.get(0));
         }
         if (type == DataType.integer) {
@@ -231,7 +256,7 @@ public class Semantic {
                 if (initializedIdentifiersSet.add(variable)) {
                     initializedIdentifiers.add(variable);
                     return true;
-                } else if (datatype.getTokenType() == null)
+                } else if (datatype == findToken(variable).get())
                     return true;
                 else
                     throwVariableExistsError(variable);
@@ -302,7 +327,7 @@ public class Semantic {
                 else
                     acceptedTokenCount++;
             } else {
-                if(!findToken(givenToken).isPresent())
+                if (!findToken(givenToken).isPresent())
                     throwUndeclaredVariableError(givenToken);
                 for (Token initToken : initializedIdentifiersSet) {
                     if (initToken.getData().equals(givenToken.getData())) {
@@ -347,7 +372,7 @@ public class Semantic {
         return token.getData().matches("\".*\"");
     }
 
-    private Optional<Token> findToken(Token toFind){
+    private Optional<Token> findToken(Token toFind) {
         return initializedIdentifiersSet.stream().filter(t -> t.equals(toFind)).findFirst();
     }
 
