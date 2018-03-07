@@ -321,11 +321,11 @@ public class Semantic {
     }
 
     private boolean checkInteger(Token token) {
-        return token.getData().matches("\\d*");
+        return token.getData().matches("(\\-|\\+)?\\d*");
     }
 
     private boolean checkFraction(Token token) {
-        return token.getData().matches("(\\d+(?:\\.\\d+)?)");
+        return token.getData().matches("(\\-|\\+)?(\\d+(?:\\.\\d+)?)");
     }
 
     private boolean checkNibble(Token token) {
