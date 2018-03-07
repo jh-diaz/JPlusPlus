@@ -172,7 +172,7 @@ public class Semantic {
         else if (tokenList.get(index).getTokenType() == TokenType.IDENTIFIER) {
             Optional<Token> ot = initializedIdentifiersSet.stream().filter(c -> c.equals(tokenList.get(index))).findFirst();
             if (ot.isPresent())
-                datatype.setData(ot.get().getData());
+                datatype = ot.get();
             //else if (tokenList.get(index).getData().matches("__\\w+(\\+\\+)|__\\w+(\\-\\-)|(\\-\\-)__\\w+|(\\+\\+)__\\w+"))
             //    datatype.setData(tokenList.get(index).getData().substring(0, tokenList.get(index).getData().length() - 2));
             else
@@ -216,6 +216,11 @@ public class Semantic {
         }
 
         // int = 2, fraction = 4, nibble =6, bool = 8, word = 10
+        if(literalOrEquation.get(0).getTokenType() == TokenType.IDENTIFIER){
+            DataType eqDatatype = initializedIdentifiersSet.stream().filter(t -> t.equals(literalOrEquation.get(0))).findFirst().get().getDataType();
+            if(eqDatatype == datatype.getDataType())
+                return true;
+        }
         if (type == DataType.integer) {
             if (checkInteger(literalOrEquation.get(0)) || literalOrEquation.stream().filter(t -> t.getDataType() == DataType.integer).findFirst().isPresent()) {
                 if (initializedIdentifiersSet.add(variable)) {
