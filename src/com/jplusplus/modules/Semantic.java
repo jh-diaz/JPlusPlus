@@ -217,9 +217,14 @@ public class Semantic {
 
         // int = 2, fraction = 4, nibble =6, bool = 8, word = 10
         if(literalOrEquation.get(0).getTokenType() == TokenType.IDENTIFIER){
-            DataType eqDatatype = initializedIdentifiersSet.stream().filter(t -> t.equals(literalOrEquation.get(0))).findFirst().get().getDataType();
-            if(eqDatatype == datatype.getDataType())
-                return true;
+            Optional<Token> opt = initializedIdentifiersSet.stream().filter(t -> t.equals(literalOrEquation.get(0))).findFirst();
+            if(opt.isPresent()) {
+                DataType eqDatatype = opt.get().getDataType();
+                if (eqDatatype == datatype.getDataType())
+                    return true;
+            }
+            else
+                throwUndeclaredVariableError(literalOrEquation.get(0));
         }
         if (type == DataType.integer) {
             if (checkInteger(literalOrEquation.get(0)) || literalOrEquation.stream().filter(t -> t.getDataType() == DataType.integer).findFirst().isPresent()) {
@@ -297,7 +302,9 @@ public class Semantic {
                 else
                     acceptedTokenCount++;
             } else {
-                for (Token initToken : initializedIdentifiers) {
+                if(!initializedIdentifiersSet.stream().filter(t -> t.equals(givenToken)).findFirst().isPresent())
+                    throwUndeclaredVariableError(givenToken);
+                for (Token initToken : initializedIdentifiersSet) {
                     if (initToken.getData().equals(givenToken.getData())) {
                         if ((initToken.getDataType() != datatype &&
                                 !((initToken.getDataType() == DataType.word && datatype == DataType.nibble) ||
