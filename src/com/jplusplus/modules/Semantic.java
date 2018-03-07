@@ -26,34 +26,6 @@ public class Semantic {
         for (index = 0; index < tokenList.size(); index++) {
             Token token = tokenList.get(index);
 
-            /*if(token.getData().matches("__\\w+(\\+\\+)|__\\w+(\\-\\-)|(\\-\\-)__\\w+|(\\+\\+)__\\w+")){
-                if(!checkIncrementDecrement(token))
-                    throwInvalidConditionals(token);
-            }*/
-            /*if (token.getTokenType() == TokenType.DATA_TYPE || token.getTokenType() == TokenType.IDENTIFIER) {
-                if (!checkDeclaration())
-                    throw new SemanticError("Invalid Declaration in line " + tokenList.get(index).getLineNumber() + " near " + tokenList.get(index).getData());
-            }*/
-            /*if (token.getTokenType() == TokenType.RELATIONAL_OPERATOR) {
-                if (!checkRelational())
-                    throwInvalidConditionals(token);
-            }*/
-            /*if (token.getTokenType() == TokenType.FOR ||
-                    token.getTokenType() == TokenType.WHILE ||
-                    token.getTokenType() == TokenType.DO_WHILE ||
-                    token.getTokenType() == TokenType.IF ||
-                    token.getTokenType() == TokenType.ELSEIF ||
-                    token.getTokenType() == TokenType.ELSE) {
-                initializedIdentifiers.add(token);
-            }
-            /*if (token.getTokenType() == TokenType.WHILE ||
-                    token.getTokenType() == TokenType.IF ||
-                    token.getTokenType() == TokenType.ELSEIF ||
-                    token.getTokenType() == TokenType.COND ||
-                    token.getTokenType() == TokenType.FOR)
-                if (!checkConditionals(token))
-                    throwInvalidConditionals(token);*/
-
             switch (token.getTokenType()) {
                 case DATA_TYPE:
                 case IDENTIFIER:
@@ -98,6 +70,12 @@ public class Semantic {
                     if (!checkRelational())
                         throwInvalidConditionals(token);
                     break;
+                case INPUT_BOOLEAN_OPERATION:
+                case INPUT_DOUBLE_OPERATION:
+                case INPUT_STRING_OPERATION:
+                case INPUT_CHARACTER_OPERATION:
+                case INPUT_INTEGER_OPERATION:
+                    checkInputs(token);
             }
         }
         return false;
@@ -115,6 +93,38 @@ public class Semantic {
         throwUndeclaredVariableError(token);
         return false;
     }*/
+
+    private void checkInputs(Token token) {
+        Token inputToken = token;
+        Token inputVariable = tokenList.get(++index);
+        if(findToken(inputVariable).isPresent())
+            inputVariable = findToken(inputVariable).get();
+        else
+            throwUndeclaredVariableError(inputVariable);
+
+        switch (inputToken.getTokenType()) {
+            case INPUT_BOOLEAN_OPERATION:
+                if(inputVariable.getDataType() != DataType.bool)
+                    throwMismatchError(DataType.bool, inputVariable);
+                break;
+            case INPUT_CHARACTER_OPERATION:
+                if(inputVariable.getDataType() != DataType.nibble)
+                    throwMismatchError(DataType.nibble, inputVariable);
+                break;
+            case INPUT_DOUBLE_OPERATION:
+                if(inputVariable.getDataType() != DataType.fraction)
+                    throwMismatchError(DataType.fraction, inputVariable);
+                break;
+            case INPUT_INTEGER_OPERATION:
+                if(inputVariable.getDataType() != DataType.integer)
+                    throwMismatchError(DataType.integer, inputVariable);
+                break;
+            case INPUT_STRING_OPERATION:
+                if(inputVariable.getDataType() != DataType.word)
+                    throwMismatchError(DataType.word, inputVariable);
+                break;
+        }
+    }
 
     private boolean checkRelational() {
         Token first = tokenList.get(--index);
