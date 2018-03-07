@@ -170,7 +170,7 @@ public class Semantic {
         if (tokenList.get(index).getTokenType() == TokenType.DATA_TYPE)
             datatype = tokenList.get(index); //0
         else if (tokenList.get(index).getTokenType() == TokenType.IDENTIFIER) {
-            Optional<Token> ot = initializedIdentifiersSet.stream().filter(c -> c.equals(tokenList.get(index))).findFirst();
+            Optional<Token> ot = findToken(tokenList.get(index));
             if (ot.isPresent())
                 datatype = ot.get();
             //else if (tokenList.get(index).getData().matches("__\\w+(\\+\\+)|__\\w+(\\-\\-)|(\\-\\-)__\\w+|(\\+\\+)__\\w+"))
@@ -204,7 +204,7 @@ public class Semantic {
         else if (datatype.getData().equals(syntaxList.get(syntaxIndex = syntaxIndex + 2)))
             type = DataType.word;
         else
-            type = initializedIdentifiersSet.stream().filter(t -> t.equals(variable)).findFirst().get().getDataType();
+            type = findToken(variable).get().getDataType();
         variable.setDataType(type);
 
 
@@ -217,7 +217,7 @@ public class Semantic {
 
         // int = 2, fraction = 4, nibble =6, bool = 8, word = 10
         if(literalOrEquation.get(0).getTokenType() == TokenType.IDENTIFIER){
-            Optional<Token> opt = initializedIdentifiersSet.stream().filter(t -> t.equals(literalOrEquation.get(0))).findFirst();
+            Optional<Token> opt = findToken(literalOrEquation.get(0));
             if(opt.isPresent()) {
                 DataType eqDatatype = opt.get().getDataType();
                 if (eqDatatype == datatype.getDataType())
@@ -302,7 +302,7 @@ public class Semantic {
                 else
                     acceptedTokenCount++;
             } else {
-                if(!initializedIdentifiersSet.stream().filter(t -> t.equals(givenToken)).findFirst().isPresent())
+                if(!findToken(givenToken).isPresent())
                     throwUndeclaredVariableError(givenToken);
                 for (Token initToken : initializedIdentifiersSet) {
                     if (initToken.getData().equals(givenToken.getData())) {
@@ -345,6 +345,10 @@ public class Semantic {
 
     private boolean checkWord(Token token) {
         return token.getData().matches("\".*\"");
+    }
+
+    private Optional<Token> findToken(Token toFind){
+        return initializedIdentifiersSet.stream().filter(t -> t.equals(toFind)).findFirst();
     }
 
     private void throwMismatchError(DataType type, Token token) {
