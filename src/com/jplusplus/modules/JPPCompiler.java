@@ -20,9 +20,12 @@ public class JPPCompiler {
         strSyntax = strSyntax.replaceAll("%20", " ");
         Lexical lex = new Lexical(strSyntax, filePath);
         Syntax syntax = new Syntax(lex);
-        Transcompiler transcompiler = new Transcompiler(lex.getTokens());
-        runCompiler(transcompiler);
+        Semantic semantic = new Semantic(lex);
+        //Transcompiler transcompiler = new Transcompiler(lex.getTokens());
+        //runCompiler(transcompiler);
     }
+    //walao weh lah no transcompiler yet lul
+    /*
     private void runCompiler(Transcompiler tc) {
 
         String path = tc.getFile().getPath();
@@ -40,5 +43,5 @@ public class JPPCompiler {
         } catch (MalformedURLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
