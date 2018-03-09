@@ -2,6 +2,9 @@
 -fx-fill:darkblue;
 -fx-font-weight:bold;
 }
+.error{
+-fx-fill:darkred;
+}
 .vars{
 -fx-fill:purple;
 -fx-font-weight:bold;

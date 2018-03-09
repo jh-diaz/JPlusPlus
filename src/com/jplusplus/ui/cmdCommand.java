@@ -32,8 +32,8 @@ public class cmdCommand {
             while ((input = brError.readLine()) != null)
                 output.add(input);
 
-
-        } catch (IOException io) {
+            int exit = p.waitFor();
+        } catch (Exception io) {
             output.add("ERROR");
         }
     }

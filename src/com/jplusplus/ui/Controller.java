@@ -3,7 +3,10 @@ package com.jplusplus.ui;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.geometry.Side;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -21,6 +24,7 @@ public class Controller {
     @FXML private TabPane tabs;
     @FXML private CodeTextArea textarea;
     @FXML private AnchorPane ap, tap;
+    private double spDiv = 0.60;
 
 
     public Controller(Model model){
@@ -35,9 +39,14 @@ public class Controller {
         AnchorPane.setTopAnchor(vsp, 0.0);
         AnchorPane.setRightAnchor(vsp, 0.0);
 
-
         ap.getChildren().add(vsp);
         TextEditorEvents.addTextAreaEvents(textarea, updates);
+
+        splitPaneBottom.getDividers().get(0).positionProperty().addListener((ol, ov, nv) -> {
+            if(nv.doubleValue()<.99){
+                spDiv = nv.doubleValue();
+            }
+        });
     }
 
     @FXML private void onOpen(){
@@ -58,7 +67,7 @@ public class Controller {
         if(currentFile!=null)
             Main.setTitle(currentFile.getFilename());
     }
-    @FXML protected void onSave(){
+    @FXML protected boolean onSave(){
         if(currentFile!=null) {
             JPPFile file = new JPPFile(currentFile.getPath(), Arrays.asList(textarea.getText().split("\n")));
             currentFile = (file);
@@ -69,16 +78,21 @@ public class Controller {
             if(model.saveNewFile(file))
                 currentFile = (file);
         }
-        if(currentFile!=null)
+        if(currentFile!=null) {
             Main.setTitle(currentFile.getFilename());
+            return true;
+        }
+        return false;
     }
     @FXML private void onClose(){
         model.close();
     }
     @FXML protected void onRun(){
-        onSave();
-        tabs.getTabs().add(model.run(currentFile, splitPaneBottom));
-        tabs.getSelectionModel().selectLast();
+        if(onSave()) {
+            tabs.getTabs().add(model.run(currentFile, splitPaneBottom));
+            tabs.getSelectionModel().selectLast();
+            splitPaneBottom.setDividerPositions(spDiv);
+        }
     }
     @FXML private void onStop(){
         //can we even stop it?
@@ -92,6 +106,6 @@ public class Controller {
         alert.setHeaderText("About");
         alert.setTitle("About");
         alert.setContentText(editorInfo + fileInfo);
-        alert.show();
+        alert.showAndWait();
     }
 }

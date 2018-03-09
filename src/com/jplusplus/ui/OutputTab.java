@@ -20,11 +20,9 @@ public class OutputTab extends Tab{
     public OutputTab(SplitPane splitPane){
         total++;
         this.splitPane = splitPane;
-        splitPane.setDividerPositions(0.60);
-        setText("atetsaedfsxc");
         apane = new AnchorPane();
 
-        output = new CodeArea();
+        output = new CodeErrorTextArea();
         output.setEditable(true);
         VirtualizedScrollPane vsp = new VirtualizedScrollPane(output);
         AnchorPane.setLeftAnchor(vsp, 0.0);
