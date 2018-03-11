@@ -318,8 +318,16 @@ public class Semantic {
                 DataType eqDatatype = opt.get().getDataType();
                 if (eqDatatype == variable.getDataType() ||
                         (eqDatatype == DataType.integer && variable.getDataType() == DataType.fraction ||
-                                eqDatatype == DataType.fraction && variable.getDataType() == DataType.integer))
-                    return true;
+                                eqDatatype == DataType.fraction && variable.getDataType() == DataType.integer)){
+                    if(initializedIdentifiersSet.add(variable)){
+                        initializedIdentifiers.add(variable);
+                        return true;
+                    } else if (datatype == findToken(variable).get())
+                        return true;
+                    else
+                        throwVariableExistsError(variable);
+                }
+
             } else
                 throwUndeclaredVariableError(literalOrEquation.get(0));
         }
@@ -338,7 +346,7 @@ public class Semantic {
                 if (initializedIdentifiersSet.add(variable)) {
                     initializedIdentifiers.add(variable);
                     return true;
-                } else if (datatype.getTokenType() == null)
+                } else if (datatype == findToken(variable).get())
                     return true;
                 else
                     throwVariableExistsError(variable);
@@ -348,7 +356,7 @@ public class Semantic {
                 if (initializedIdentifiersSet.add(variable)) {
                     initializedIdentifiers.add(variable);
                     return true;
-                } else if (datatype.getTokenType() == null)
+                } else if (datatype == findToken(variable).get())
                     return true;
                 else
                     throwVariableExistsError(variable);
@@ -358,7 +366,7 @@ public class Semantic {
                 if (initializedIdentifiersSet.add(variable)) {
                     initializedIdentifiers.add(variable);
                     return true;
-                } else if (datatype.getTokenType() == null)
+                } else if (datatype == findToken(variable).get())
                     return true;
                 else
                     throwVariableExistsError(variable);
@@ -368,7 +376,7 @@ public class Semantic {
                 if (initializedIdentifiersSet.add(variable)) {
                     initializedIdentifiers.add(variable);
                     return true;
-                } else if (datatype.getTokenType() == null)
+                } else if (datatype == findToken(variable).get())
                     return true;
                 else
                     throwVariableExistsError(variable);
