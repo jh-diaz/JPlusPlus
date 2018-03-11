@@ -1,4 +1,4 @@
-integer __x = 2 ;
-word __y = "2" ;
-if __x + __y == __x + __y ;
+word __a = "A" ;
+
+if __a <= "A" ;
 endif
