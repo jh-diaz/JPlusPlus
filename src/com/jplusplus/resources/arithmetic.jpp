@@ -1,4 +1,1 @@
-integer __x = 2 ;
-word __y = "2" ;
-if __x + __y == __x + __y ;
-endif
+integer __xyzzzz = 2 ;

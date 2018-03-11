@@ -220,6 +220,7 @@ public class Lexical implements LexicalScannerInterface {
         }
 
         else if(data.length() >= 3 && (data.substring(0,2).equals(syntaxList[index = index + 3]))){
+            System.out.println(data.substring(2, data.length()));
             return TokenType.IDENTIFIER;
         }
 
