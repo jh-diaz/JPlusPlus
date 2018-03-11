@@ -213,7 +213,8 @@ public class Semantic {
         });
 
         if (first.stream().filter(t -> t.getDataType() == DataType.word).findFirst().isPresent() &&
-                second.stream().filter(t -> t.getDataType() == DataType.word).findFirst().isPresent() && relational.getData().equals("=="))
+                (second.stream().filter(t -> t.getDataType() == DataType.word).findFirst().isPresent() && relational.getData().equals("==") ||
+                        second.stream().filter(t -> t.getDataType() == DataType.word).findFirst().isPresent() && relational.getData().equals("!=")))
             return true;
 
         Token op1 = new Token(first.get(0).getLineNumber());
@@ -226,12 +227,12 @@ public class Semantic {
             if (second.get(i).getTokenType() != TokenType.ARITHMETIC_OPERATOR)
                 op2.setDataType(checkOperations(op2, second.get(i)));
         }
-        if ((op1.getDataType() == DataType.bool || op2.getDataType() == DataType.bool) && !relational.getData().equals("=="))
+        if ((op1.getDataType() == DataType.bool || op2.getDataType() == DataType.bool) && (!relational.getData().equals("==") && !relational.getData().equals("!=")))
             throw new SemanticError("Invalid operations. Boolean cannot be compared using " + relational.getData() + " in line number " + relational.getLineNumber());
         if ((op1.getDataType() == DataType.integer || op1.getDataType() == DataType.fraction) &&
                 (op2.getDataType() == DataType.integer || op2.getDataType() == DataType.fraction))
             return true;
-        else if ((op1.getDataType() == DataType.word && op2.getDataType() == DataType.word && !relational.getData().equals("==")))
+        else if ((op1.getDataType() == DataType.word && op2.getDataType() == DataType.word && (!relational.getData().equals("==") && !relational.getData().equals("=="))))
             throw new SemanticError("Invalid operations. Word cannot be compared using " + relational.getData() + " in line number " + relational.getLineNumber() + " near " + op1.getData());
         else if (op1.getDataType() == op2.getDataType())
             return true;
