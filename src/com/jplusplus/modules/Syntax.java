@@ -15,6 +15,7 @@ public class Syntax implements SyntaxScannerInterface{
     private int savedIndex;
     private int relationalCount;
     private int ifNestedCount;
+    private int doWhileCount = 0;
     private String[] syntaxList;
     private Stack<TokenType> matchingTerminators;
     private Stack<Integer> tokenIndices;
@@ -273,12 +274,14 @@ public class Syntax implements SyntaxScannerInterface{
 
                     saveIndex();
                     currentIndex++;
+                    doWhileCount++;
                     if(!cond()){
                         syntaxError("Expecting cond for do while", savedIndex);
                         System.exit(0);
                     }
                     backtrackIndex();
                     getToken();
+                    doWhileCount++;
                 }
                 else
                     mismatch = true;
@@ -310,10 +313,17 @@ public class Syntax implements SyntaxScannerInterface{
     private boolean cond(){
         getToken("Expecting cond");
         if(expectedToken(TokenType.COND)){
+            int condTokenStart = currentIndex;
             currentIndex++;
             getToken("Expecting expression");
             if(expression() && hasSemiColon()){
                 //currentIndex++;
+                //added 3/11/18
+                if(doWhileCount == 0){
+                    syntaxError("No matching do while clause for cond", condTokenStart);
+                    System.exit(0);
+                }
+                doWhileCount--;
                 return true;
             }
             else{

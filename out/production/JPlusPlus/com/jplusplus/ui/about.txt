@@ -1,5 +1,5 @@
 #JPPPropertyFile
 #Created 121717
 title = JPlusPlus
-version = 1.0
+version = 1.51
 about = test test

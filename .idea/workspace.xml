@@ -8,7 +8,24 @@
   <component name="ChangeListManager">
     <list default="true" id="b65de6cf-b9e7-417e-bea3-c58281567eb3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/JPlusPlus.iml" afterPath="$PROJECT_DIR$/JPlusPlus.iml" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/modules/Lexical.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/modules/Lexical.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/modules/Syntax.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/modules/Syntax.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/modules/Token.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/modules/Token.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/prototypes/Main.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/prototypes/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/prototypes/SyntaxTester.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/prototypes/SyntaxTester.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/resources/arithmetic.jpp" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/resources/arithmetic.jpp" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/resources/testinput.jpp" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/resources/testinput.jpp" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/About.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/About.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/Controller.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/Controller.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/JPPFile.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/JPPFile.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/Main.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/Model.class" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/Model.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/about.txt" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/about.txt" />
+      <change beforePath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/ui.fxml" afterPath="$PROJECT_DIR$/out/production/JPlusPlus/com/jplusplus/ui/ui.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/com/jplusplus/modules/Lexical.java" afterPath="$PROJECT_DIR$/src/com/jplusplus/modules/Lexical.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/jplusplus/modules/Syntax.java" afterPath="$PROJECT_DIR$/src/com/jplusplus/modules/Syntax.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/jplusplus/prototypes/Main.java" afterPath="$PROJECT_DIR$/src/com/jplusplus/prototypes/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/jplusplus/resources/arithmetic.jpp" afterPath="$PROJECT_DIR$/src/com/jplusplus/resources/arithmetic.jpp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,14 +50,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CodeTextArea.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/ui/CodeTextArea.java">
+      <file leaf-file-name="Lexical.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Lexical.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="355">
+              <caret line="226" column="38" lean-forward="false" selection-start-line="226" selection-start-column="38" selection-end-line="226" selection-end-column="38" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#Lexical#1;class#Lexical#0" expanded="false" />
+                <element signature="method#readSyntaxFile#0;class#Lexical#0" expanded="false" />
+                <element signature="method#tokenizeAll#0;class#Lexical#0" expanded="false" />
+                <element signature="method#isInteger#0;class#Lexical#0" expanded="false" />
+                <element signature="method#isFraction#0;class#Lexical#0" expanded="false" />
+                <element signature="method#printTokens#0;class#Lexical#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arithmetic.jpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/arithmetic.jpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -119,18 +151,18 @@
         <option value="$PROJECT_DIR$/src/com/jplusplus/prototypes/asd.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/modules/ArithmeticExpressionSyntax.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/deprecated/Syntax.java" />
-        <option value="$PROJECT_DIR$/src/com/jplusplus/modules/Lexical.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/modules/TokenType.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/exceptions/SyntaxError.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/exceptions/LexicalScanningException.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/resources/syntax.jpp" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/resources/grammar.jpp" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/prototypes/SyntaxTester.java" />
-        <option value="$PROJECT_DIR$/src/com/jplusplus/prototypes/Main.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/modules/Token.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/resources/testinput.jpp" />
-        <option value="$PROJECT_DIR$/src/com/jplusplus/resources/arithmetic.jpp" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/prototypes/Main.java" />
         <option value="$PROJECT_DIR$/src/com/jplusplus/modules/Syntax.java" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/resources/arithmetic.jpp" />
+        <option value="$PROJECT_DIR$/src/com/jplusplus/modules/Lexical.java" />
       </list>
     </option>
   </component>
@@ -161,6 +193,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
@@ -186,7 +220,28 @@
               <item name="JPlusPlus" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="jplusplus" type="462c0819:PsiDirectoryNode" />
+              <item name="datatypes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JPlusPlus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JPlusPlus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jplusplus" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JPlusPlus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JPlusPlus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jplusplus" type="462c0819:PsiDirectoryNode" />
+              <item name="prototypes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JPlusPlus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JPlusPlus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jplusplus" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JPlusPlus" type="b2602c69:ProjectViewProjectNode" />
@@ -199,8 +254,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -817,17 +870,19 @@
       <workItem from="1518280644792" duration="12722000" />
       <workItem from="1518328931722" duration="22862000" />
       <workItem from="1518373675757" duration="5123000" />
+      <workItem from="1520769050062" duration="3247000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211728000" />
+    <option name="totallyTimeSpent" value="214975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -838,9 +893,10 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22692889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22390318" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.49541986" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -849,37 +905,13 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2906815" sideWeight="0.5065886" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1170" height="544" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2254902" sideWeight="0.49341142" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22087745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.49541986" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -933,29 +965,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/temp/LexicalScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/syntax.jpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
-    <entry file="file://$PROJECT_DIR$/temp/LexicalScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="46" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/temp/LexicalScanner.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/jre/lib/rt.jar!/java/io/PrintStream.class" />
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/test.java" />
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/grammar/tex.text" />
@@ -972,20 +982,8 @@
     <entry file="file://$PROJECT_DIR$/haha.text" />
     <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/String.java" />
     <entry file="file://F:/Downloads/RDescent.java" />
-    <entry file="file://$PROJECT_DIR$/temp/SyntaxAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2773">
-          <caret line="180" column="49" lean-forward="false" selection-start-line="180" selection-start-column="49" selection-end-line="180" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp/tester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/temp/SyntaxAnalyzer.java" />
+    <entry file="file://$PROJECT_DIR$/temp/tester.java" />
     <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/io/PrintWriter.java" />
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/ui/JPPFile.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1010,24 +1008,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/temp/LexicalScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/temp/LexicalScanner.java" />
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/word.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1070,13 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/DataType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1131,13 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/prototypes/SyntaxTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/grammar.jpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-187">
@@ -1149,24 +1120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
           <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Lexical.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2445">
-          <caret line="76" column="25" lean-forward="true" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
-          <folding>
-            <element signature="method#Lexical#1;class#Lexical#0" expanded="false" />
-            <element signature="method#readSyntaxFile#0;class#Lexical#0" expanded="false" />
-            <element signature="e#1853#1854#0" expanded="false" />
-            <element signature="e#1897#1898#0" expanded="false" />
-            <element signature="e#1936#1937#0" expanded="false" />
-            <element signature="e#1976#1977#0" expanded="false" />
-            <element signature="method#isInteger#0;class#Lexical#0" expanded="false" />
-            <element signature="method#isFraction#0;class#Lexical#0" expanded="false" />
-            <element signature="method#printTokens#0;class#Lexical#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1184,31 +1137,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/prototypes/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/ui/CodeTextArea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/DataType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/datatypes/integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Semantic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7188">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/prototypes/SyntaxTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/testinput.jpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="293">
+          <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/arithmetic.jpp">
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/prototypes/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="272">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Syntax.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+        <state relative-caret-position="-576">
+          <caret line="275" column="35" lean-forward="true" selection-start-line="275" selection-start-column="35" selection-end-line="275" selection-end-column="35" />
           <folding>
             <element signature="docComment;class#Syntax#0" expanded="false" />
             <element signature="method#checkSyntax#0;class#Syntax#0" expanded="false" />
@@ -1217,8 +1207,8 @@
             <element signature="method#inputOperation#0;class#Syntax#0" expanded="false" />
             <element signature="method#outputOperation#0;class#Syntax#0" expanded="false" />
             <element signature="method#IOOperation#0;class#Syntax#0" expanded="false" />
-            <element signature="method#blockStatements#0;class#Syntax#0" expanded="false" />
             <element signature="method#conditionals#0;class#Syntax#0" expanded="false" />
+            <element signature="method#forLoop#0;class#Syntax#0" expanded="false" />
             <element signature="method#expression#0;class#Syntax#0" expanded="false" />
             <element signature="method#binaryOperatorsLowerPrec#0;class#Syntax#0" expanded="false" />
             <element signature="method#hasNextBinaryOperatorOrValue#0;class#Syntax#0" expanded="false" />
@@ -1226,12 +1216,50 @@
             <element signature="method#isValue#0;class#Syntax#0" expanded="false" />
             <element signature="method#hasSemiColon#0;class#Syntax#0" expanded="false" />
             <element signature="method#expectedData#0;class#Syntax#0" expanded="false" />
-            <element signature="method#syntaxError#0;class#Syntax#0" expanded="false" />
             <element signature="method#syntaxError#1;class#Syntax#0" expanded="false" />
             <element signature="method#getToken#0;class#Syntax#0" expanded="false" />
             <element signature="method#getToken#1;class#Syntax#0" expanded="false" />
             <element signature="method#backtrackIndex#0;class#Syntax#0" expanded="false" />
             <element signature="method#saveIndex#0;class#Syntax#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/jre/lib/rt.jar!/java/lang/Runtime.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="76" column="19" lean-forward="false" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/ui/cmdCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="24" column="47" lean-forward="false" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/resources/arithmetic.jpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jplusplus/modules/Lexical.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="226" column="38" lean-forward="false" selection-start-line="226" selection-start-column="38" selection-end-line="226" selection-end-column="38" />
+          <folding>
+            <element signature="method#Lexical#1;class#Lexical#0" expanded="false" />
+            <element signature="method#readSyntaxFile#0;class#Lexical#0" expanded="false" />
+            <element signature="method#tokenizeAll#0;class#Lexical#0" expanded="false" />
+            <element signature="method#isInteger#0;class#Lexical#0" expanded="false" />
+            <element signature="method#isFraction#0;class#Lexical#0" expanded="false" />
+            <element signature="method#printTokens#0;class#Lexical#0" expanded="false" />
           </folding>
         </state>
       </provider>
