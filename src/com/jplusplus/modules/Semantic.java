@@ -317,8 +317,7 @@ public class Semantic {
             if (opt.isPresent()) {
                 DataType eqDatatype = opt.get().getDataType();
                 if (eqDatatype == variable.getDataType() ||
-                        (eqDatatype == DataType.integer && variable.getDataType() == DataType.fraction ||
-                                eqDatatype == DataType.fraction && variable.getDataType() == DataType.integer)){
+                        (eqDatatype == DataType.integer && variable.getDataType() == DataType.fraction)){
                     if(initializedIdentifiersSet.add(variable)){
                         initializedIdentifiers.add(variable);
                         return true;
@@ -420,6 +419,8 @@ public class Semantic {
         if(datatype == op1.getDataType())
             return true;
         else if(token.stream().filter(t -> t.getTokenType() == TokenType.RELATIONAL_OPERATOR).findFirst().isPresent())
+            return true;
+        else if(datatype == DataType.fraction && op1.getDataType() == DataType.integer)
             return true;
         else
             throwMismatchError(datatype, token.get(0));

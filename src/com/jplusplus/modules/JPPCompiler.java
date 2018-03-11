@@ -1,14 +1,14 @@
 package com.jplusplus.modules;
 
 
-/*import javax.tools.JavaCompiler;
+import javax.tools.JavaCompiler;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.Iterator;*/
+import java.util.Iterator;
 
 public class JPPCompiler {
     public static void main(String[] args) {
@@ -21,11 +21,12 @@ public class JPPCompiler {
         Lexical lex = new Lexical(strSyntax, filePath);
         Syntax syntax = new Syntax(lex);
         Semantic semantic = new Semantic(lex);
-        //Transcompiler transcompiler = new Transcompiler(lex.getTokens());
+        Transcompiler transcompiler = new Transcompiler(lex.getTokens());
+        System.out.println("File: " + transcompiler.getFile().getPath());
         //runCompiler(transcompiler);
     }
-    //walao weh lah no transcompiler yet lul
-    /*
+    /*//walao weh lah no transcompiler yet lul
+
     private void runCompiler(Transcompiler tc) {
 
         String path = tc.getFile().getPath();
@@ -43,5 +44,6 @@ public class JPPCompiler {
         } catch (MalformedURLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }*/
+    }
+    //*/
 }

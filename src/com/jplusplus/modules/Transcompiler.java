@@ -49,7 +49,6 @@ public class Transcompiler {
                     }
                     line++;
                     writer.append("\n");
-
                 }
 
                 if(token.getTokenType() == TokenType.IF || ifParameter)
@@ -88,6 +87,8 @@ public class Transcompiler {
                     writer.append("}");
                 else if(token.getTokenType() == TokenType.LINE_TERMINATOR)
                     writer.append(";");
+                else if(token.getData().matches("\".*\""))
+                    writer.append(token.getData().replaceAll("!\\$!", " "));
                 else
                     writer.append(token.getData());
 
@@ -107,7 +108,7 @@ public class Transcompiler {
     }
     private void createMain()throws IOException{
         if(writer != null)
-            writer.append("static{\n");
+            writer.append("public static void main(String[] args){\n");
     }
     private void endFile()throws IOException{
         if(writer != null)
@@ -118,7 +119,7 @@ public class Transcompiler {
             writer.append(token.getData()+"(");
             ifParameter = true;
         }
-        else
+        else if(token.getTokenType()!=TokenType.LINE_TERMINATOR)
             writer.append(token.getData());
 
         return ifParameter;
@@ -128,19 +129,10 @@ public class Transcompiler {
             writer.append("else if (");
             ifParameter=true;
         }
-        else
+        else if(token.getTokenType()!=TokenType.LINE_TERMINATOR)
             writer.append(token.getData());
         return ifParameter;
     }
-    /*private boolean writeWhile(Token token, boolean ifParameter) throws IOException{
-        if(!ifParameter) {
-            writer.append(token.getData()+"(");
-            ifParameter = true;
-        }
-        else
-            writer.append(token.getData());
-        return ifParameter;
-    }*/
     private int writeFor(Token token, int forSemicolonCount) throws IOException{
         if(forSemicolonCount==0) {
             writer.append(token.getData()+"(");
@@ -148,9 +140,13 @@ public class Transcompiler {
         }
         else if(token.getTokenType() == TokenType.LINE_TERMINATOR) {
             forSemicolonCount++;
-            System.out.println(forSemicolonCount);
             if(forSemicolonCount<=3)
                 writer.append(token.getData());
+            else
+                writer.append("++");
+        }
+        else if(token.getTokenType() == TokenType.DATA_TYPE){
+            writeDataType(token);
         }
         else
             writer.append(token.getData());
@@ -234,6 +230,8 @@ public class Transcompiler {
             writer.append("double");
         else if(token.getData().equals("word"))
             writer.append("String");
+        else if(token.getData().equals("bool"))
+            writer.append("boolean");
     }
     private int writeCond(Token token, int parameterCount) throws IOException{
         if(parameterCount==0) {
@@ -242,7 +240,7 @@ public class Transcompiler {
         }
         else if(token.getData().equals("true") || token.getData().equals("false"))
             parameterCount=4;
-        else{
+        else if(token.getTokenType()!=TokenType.LINE_TERMINATOR){
             writer.append(token.getData());
             parameterCount++;
         }
