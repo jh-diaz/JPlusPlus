@@ -1,4 +1,1 @@
-word __a = "A" ;
-
-if __a <= "A" ;
-endif
+output "w" > "w" ;

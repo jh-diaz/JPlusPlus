@@ -57,32 +57,14 @@ public class cmdCommand {
         File tc = new File(path);
         String pathNoName = path.substring(0, path.length() - tc.getName().length());
         String fileNoExtension = tc.getName().substring(0, tc.getName().length() - 5);
-        //String property = System.getProperty("java.home");
-        //property = property.replace("jre", "jdk");
-        //System.setProperty("java.home", property);
         JavaCompiler jc = ToolProvider.getSystemJavaCompiler();//pls fix
 
         jc.run(null, null, null, path);
         List<String> cmd = new ArrayList<>();
         String cmd1 = "cmd.exe /c start cmd /k java -cp " + pathNoName + " " + fileNoExtension;
-        System.out.println(cmd1);
         try {
             Process p = Runtime.getRuntime().exec(cmd1);
 
-            /*Thread input = new Thread(new StreamThread("in", System.out, p.getInputStream()));
-            Thread error = new Thread(new StreamThread("err", System.err, p.getErrorStream()));
-            input.start();
-            error.start();*/
-            /*BufferedReader brInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            BufferedReader brError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-            String input;
-            while ((input = brInput.readLine()) != null) {
-                 output.add(input);
-            }
-
-            while ((input = brError.readLine()) != null)
-                output.add(input);
-            int exit = p.waitFor();*/
             Files.delete(Paths.get(path));
             //Files.delete(Paths.get(pathNoName + "\\" + fileNoExtension + ".class"));
         } catch (IOException e) {
@@ -94,15 +76,6 @@ public class cmdCommand {
 
     }
 
-    /*public void writeCommand(String line) {
-        try {
-            BufferedWriter output = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
-            output.write(line);
-            output.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     public List<String> getOutput() {
         return output;

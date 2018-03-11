@@ -38,6 +38,7 @@ public class Transcompiler {
             createClass();
             createMain();
             for (Token token : tokens) {
+                token.setData(token.getData().replaceAll("!\\$!"," "));
                 //System.out.println(token.getTokenType() + " "+token.getData() + " "+token.getLineNumber());
                 while (token.getLineNumber()!=line) {
                     if(ifParameter || elseifParameter || whileParameter || forSemicolonCount!=0){
@@ -201,15 +202,16 @@ public class Transcompiler {
         return count;
     }
     private void writePrintln() throws IOException{
-        writer.append("System.out.println(\"\"");
+        writer.append("System.out.println(");
         isOutputting = true;
     }
 
     private int writeOutput(Token token, int count) throws IOException{
         if(!isOutputting)
             writePrintln();
-        if(token.getTokenType() == TokenType.IDENTIFIER || token.getTokenType()==TokenType.LITERAL){
-            writer.append("+ "+token.getData());
+        if(token.getTokenType() == TokenType.IDENTIFIER || token.getTokenType()==TokenType.LITERAL || token.getTokenType()==TokenType.ARITHMETIC_OPERATOR ||
+                token.getTokenType() == TokenType.RELATIONAL_OPERATOR){
+            writer.append(token.getData());
             count++;
         }
         else if(token.getTokenType() == TokenType.LINE_TERMINATOR){

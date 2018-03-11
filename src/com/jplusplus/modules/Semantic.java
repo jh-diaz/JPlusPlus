@@ -77,6 +77,9 @@ public class Semantic {
                 case INPUT_CHARACTER_OPERATION:
                 case INPUT_INTEGER_OPERATION:
                     checkInputs(token);
+                    break;
+                case OUTPUT_OPERATION:
+                    checkOutput();
             }
         }
         return true;
@@ -94,6 +97,41 @@ public class Semantic {
         throwUndeclaredVariableError(token);
         return false;
     }*/
+
+    private void checkOutput() {
+        int localIndex = index;
+        List<Token> tokens = new ArrayList<>();
+        while (tokenList.get(++localIndex).getTokenType() != TokenType.LINE_TERMINATOR)
+            tokens.add(tokenList.get(localIndex));
+        Token help = new Token(tokenList.get(index).getLineNumber());
+
+        tokens.forEach(t -> {
+            if (t.getTokenType() == TokenType.LITERAL) {
+                if (checkInteger(t))
+                    t.setDataType(DataType.integer);
+                else if (checkBoolean(t))
+                    t.setDataType(DataType.bool);
+                else if (checkFraction(t))
+                    t.setDataType(DataType.fraction);
+                else if (checkWord(t))
+                    t.setDataType(DataType.word);
+                else if (checkNibble(t))
+                    t.setDataType(DataType.nibble);
+            } else if (t.getTokenType() == TokenType.IDENTIFIER)
+                t.setDataType(findToken(t).get().getDataType());
+        });
+        if (!tokens.stream().anyMatch(t -> t.getTokenType() == TokenType.RELATIONAL_OPERATOR)) {
+            tokens.forEach(t -> {
+                if (t.getTokenType() != TokenType.ARITHMETIC_OPERATOR && t.getTokenType() != TokenType.RELATIONAL_OPERATOR)
+                    help.setDataType(checkOperations(help, t));
+            });
+        }
+
+        if ((help.getDataType() != DataType.integer && help.getDataType() != DataType.fraction)) {
+            if (tokens.stream().anyMatch(t -> t.getTokenType() == TokenType.ARITHMETIC_OPERATOR && !t.getData().equals("+")))
+                throw new SemanticError("Invalid operations in output in line number " + help.getLineNumber() + " near " + tokens.get(0).getData());
+        }
+    }
 
     private void checkInputs(Token token) {
         Token inputToken = token;
@@ -193,10 +231,8 @@ public class Semantic {
         if ((op1.getDataType() == DataType.integer || op1.getDataType() == DataType.fraction) &&
                 (op2.getDataType() == DataType.integer || op2.getDataType() == DataType.fraction))
             return true;
-        else if((op1.getDataType() == DataType.word && op2.getDataType() == DataType.word && !relational.getData().equals("==")))
-            throw new SemanticError("Invalid operations. Word cannot be compared using " + relational.getData() + " in line number " + relational.getLineNumber() + " near "+ op1.getData());
-        else if((op1.getDataType() == DataType.nibble && op2.getDataType() == DataType.nibble && !relational.getData().equals("==")))
-            throw new SemanticError("Invalid operations. Nibble cannot be compared using " + relational.getData() + " in line number " + relational.getLineNumber() + " near "+ op1.getData());
+        else if ((op1.getDataType() == DataType.word && op2.getDataType() == DataType.word && !relational.getData().equals("==")))
+            throw new SemanticError("Invalid operations. Word cannot be compared using " + relational.getData() + " in line number " + relational.getLineNumber() + " near " + op1.getData());
         else if (op1.getDataType() == op2.getDataType())
             return true;
 
@@ -224,9 +260,9 @@ public class Semantic {
             return DataType.word;
         else if (op1.getDataType() == DataType.word && op2.getDataType() == DataType.word) //"word" + "word"
             return DataType.word;
-        else if(op1.getDataType() == DataType.word && op2.getDataType() == DataType.nibble)
+        else if (op1.getDataType() == DataType.word && op2.getDataType() == DataType.nibble)
             return DataType.word;
-        else if(op1.getDataType() == DataType.nibble && op2.getDataType() == DataType.word)
+        else if (op1.getDataType() == DataType.nibble && op2.getDataType() == DataType.word)
             return DataType.word;
         else if (op1.getDataType() == DataType.bool || op2.getDataType() == DataType.bool) //true + false"
             throw new SemanticError("Cannot do operations to type Bool on line number " + op2.getLineNumber() + " near " + op2.getData());
@@ -321,8 +357,8 @@ public class Semantic {
             if (opt.isPresent()) {
                 DataType eqDatatype = opt.get().getDataType();
                 if (eqDatatype == variable.getDataType() ||
-                        (eqDatatype == DataType.integer && variable.getDataType() == DataType.fraction)){
-                    if(initializedIdentifiersSet.add(variable)){
+                        (eqDatatype == DataType.integer && variable.getDataType() == DataType.fraction)) {
+                    if (initializedIdentifiersSet.add(variable)) {
                         initializedIdentifiers.add(variable);
                         return true;
                     } else if (datatype == findToken(variable).get())
@@ -413,18 +449,18 @@ public class Semantic {
         Token op1 = new Token(token.get(0).getLineNumber());
 
         token.forEach(t -> {
-            if(t.getTokenType() != TokenType.ARITHMETIC_OPERATOR && t.getTokenType() != TokenType.RELATIONAL_OPERATOR)
+            if (t.getTokenType() != TokenType.ARITHMETIC_OPERATOR && t.getTokenType() != TokenType.RELATIONAL_OPERATOR)
                 op1.setDataType(checkOperations(op1, t));
         });
         token.forEach(t -> {
             if (t.getTokenType() != TokenType.IDENTIFIER)
                 t.setDataType(datatype);
         });
-        if(datatype == op1.getDataType())
+        if (datatype == op1.getDataType())
             return true;
-        else if(token.stream().filter(t -> t.getTokenType() == TokenType.RELATIONAL_OPERATOR).findFirst().isPresent())
+        else if (token.stream().filter(t -> t.getTokenType() == TokenType.RELATIONAL_OPERATOR).findFirst().isPresent())
             return true;
-        else if(datatype == DataType.fraction && op1.getDataType() == DataType.integer)
+        else if (datatype == DataType.fraction && op1.getDataType() == DataType.integer)
             return true;
         else
             throwMismatchError(datatype, token.get(0));

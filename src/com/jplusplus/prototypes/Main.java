@@ -20,8 +20,8 @@ public class Main {
         Lexical lexicalScanner = new Lexical("src/com/jplusplus/resources/syntax.jpp",
                 "src/com/jplusplus/resources/arithmetic.jpp" );
         Syntax syntaxScanner = new Syntax(lexicalScanner);
-        //Semantic semantic = new Semantic(lexicalScanner);
-        //Transcompiler transcompiler = new Transcompiler(lexicalScanner.getTokens());
+        Semantic semantic = new Semantic(lexicalScanner);
+        Transcompiler transcompiler = new Transcompiler(lexicalScanner.getTokens());
 
     }
 }
