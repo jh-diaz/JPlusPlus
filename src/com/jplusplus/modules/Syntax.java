@@ -2,21 +2,24 @@ package com.jplusplus.modules;
 
 import com.jplusplus.exceptions.SyntaxError;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 /**
  * Created by Joshua on 11/15/2017.
  */
-public class Syntax {
+public class Syntax implements SyntaxScannerInterface{
     private LexicalScannerInterface lexicalScanner;
     private Token currentToken;
     private int currentIndex;
     private int savedIndex;
     private int relationalCount;
     private int ifNestedCount;
+    private int doWhileCount = 0;
     private String[] syntaxList;
     private Stack<TokenType> matchingTerminators;
     private Stack<Integer> tokenIndices;
+    private HashMap<String, Token> variableSymbolicTable;
 
     public Syntax(LexicalScannerInterface lexicalScanner){
         this.lexicalScanner = lexicalScanner;
@@ -65,7 +68,6 @@ public class Syntax {
 
         //System.out.println("VARIABLE DECLARATION");
         getToken();
-        //System.out.println(currentToken.getData());
         if(expectedToken(TokenType.DATA_TYPE)){
             currentIndex++;
             return assignment() && hasSemiColon();
@@ -272,12 +274,14 @@ public class Syntax {
 
                     saveIndex();
                     currentIndex++;
+                    doWhileCount++;
                     if(!cond()){
                         syntaxError("Expecting cond for do while", savedIndex);
                         System.exit(0);
                     }
                     backtrackIndex();
                     getToken();
+                    doWhileCount++;
                 }
                 else
                     mismatch = true;
@@ -309,10 +313,17 @@ public class Syntax {
     private boolean cond(){
         getToken("Expecting cond");
         if(expectedToken(TokenType.COND)){
+            int condTokenStart = currentIndex;
             currentIndex++;
             getToken("Expecting expression");
             if(expression() && hasSemiColon()){
                 //currentIndex++;
+                //added 3/11/18
+                if(doWhileCount == 0){
+                    syntaxError("No matching do while clause for cond", condTokenStart);
+                    System.exit(0);
+                }
+                doWhileCount--;
                 return true;
             }
             else{
@@ -335,8 +346,14 @@ public class Syntax {
             currentIndex++;
             getToken("Expecting expression");
             if(expression()){
-                currentIndex--;
-                return true;
+                if(hasSemiColon()) {
+                    return true;
+                }
+                else{
+                    syntaxError("Expecting semi colon");
+                    System.exit(0);
+                    return false;
+                }
             }
             else{
                 syntaxError("Expecting expression");
@@ -540,5 +557,10 @@ public class Syntax {
         savedIndex = currentIndex;
 
         return false; //para lang masabay sa return statement.
+    }
+
+    @Override
+    public HashMap<String, Token> getVariableSymbolicTable() {
+        return variableSymbolicTable;
     }
 }

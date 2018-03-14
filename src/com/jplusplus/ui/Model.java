@@ -13,37 +13,39 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 public class Model {
-    
 
-    public void save(JPPFile file){
+
+    public void save(JPPFile file) {
         try {
             Files.write(file.getPath(), file.getContent());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public boolean saveNewFile(JPPFile file){
-        try{
+
+    public boolean saveNewFile(JPPFile file) {
+        try {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setInitialDirectory(new File("./"));
             fileChooser.setTitle("Save JPPFile to");
             FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("JPP Files (*.jpp)", "*.jpp");
             fileChooser.getExtensionFilters().add(filter);
             File saveFile = fileChooser.showSaveDialog(null);
-            if(saveFile!=null) {
+            if (saveFile != null) {
                 Path path = Paths.get(saveFile.getPath());
                 file.setPath(path);
 
-                Files.write(path, file.getContent(), StandardOpenOption.CREATE_NEW);
+                Files.write(path, file.getContent());
                 return true;
             }
             return false;
-        } catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
     }
-    public Result<JPPFile> open(Path file){
+
+    public Result<JPPFile> open(Path file) {
         try {
             List<String> lines = Files.readAllLines(file);
             return new Result<>(new JPPFile(file, lines), Result.Success);
@@ -52,19 +54,23 @@ public class Model {
             return new Result<>(null, Result.Failed);
         }
     }
-    public void close(){
+
+    public void close() {
         System.exit(0);
     }
-    public void interrupt(){
+
+    public void interrupt() {
         //change when compiler is done
     }
-    public OutputTab run(JPPFile file, SplitPane splitPane){
-        OutputTab ot = new OutputTab(splitPane);
-        ot.setText("Output ("+file.getFilename()+")");
-        if(file!=null){
+
+    public OutputTab run(JPPFile file, SplitPane splitPane) {
+        if (file != null) {
             cmdCommand cmd = new cmdCommand(file.getPath().toString());
+            OutputTab ot = new OutputTab(splitPane, cmd);
+            ot.setText("Output (" + file.getFilename() + ")");
             ot.setTextAreaText(cmd.getOutput());
+            return ot;
         }
-        return ot;
+        return null;
     }
 }
